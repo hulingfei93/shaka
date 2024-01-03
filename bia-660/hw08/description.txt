@@ -1,0 +1,16 @@
+You are given a file called input.txt
+Your task this week is to write a python script that will read the file, and find ALL trigrams (3-grams) that:
+
+- include at least 2 nouns
+- do not include any stopwords
+
+The 3-grams should be written in a file called trigrams.txt
+Write one 3-gram per line with a space between the terms. For example:
+
+new york city
+not very good
+
+- Use the dot as a sentence splitter
+- Use nltk's list of stopwords
+- Don't forget to lower case the document and remove non-letter characters.
+- The 3-grams should be written in the order that they appear in the document (based on their first occurrence)

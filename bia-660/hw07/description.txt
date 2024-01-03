@@ -1,0 +1,46 @@
+You are given a file called profile.txt that contains a single URL to one of the review pages of a user on Yelp ( www.yelp.com ). An example of the link contained in the file is shown below:
+
+http://www.yelp.com/user_details_reviews_self?userid=9I1w-E6w5c5FZhkXXLodZA
+
+That person has reviewed multiple establishments. For each establishment that the user has reviewed, we are also informed about the NUMBER OF TIMES they have CHECKED IN to a place, and WHEN the most recent checkin took place. Moreover, we are notified of the TYPE(S) of the reviewed establishment.
+
+For example, the user provided above has checked in once at "Mani Pedi Spa" on 9/30/2015, with that place belonging to the following 2 categories: "Nail Salons" and "Waxing". She has also checked in 5 times at "Starbucks", most recently on 9/2/2015, with Starbucks being a "Coffee & Tea" place.
+
+Considering reviews that appear in THAT URL (and ONLY that URL), we want to identify the TOTAL number of times that the given user has CHECKED-IN to each TYPE of establishment, ON or BEFORE a given cutoff date. Make sure that you properly take into account the number of times that the person has checked-in to a place. For example, the fact that this person has checked-in 5 times at Starbucks means that the "Coffee & Tea" type gets +5, whereas "Nail Salons" and "Waxing" both get +1. If there is NO check-in information on a review (e.g., "Desolation Wilderness" on the given profile), then this is equivalent to a "0 check-ins".
+
+Your task is to write a Python script that reads through the reviews that appear on the GIVEN URL (and ONLY THAT URL), focusing on reviews about establishments visited ON or BEFORE the cutoff date, which for our purposes will be "July 1st, 2010". More specifically, if the person has checked in multiple times to a place, and the most recent review is AFTER the cutoff date, assume that any OTHER visit was made prior to the cutoff date. If, for instance, the user has checked in 3 times to a place with the most recent being on Oct. 9, 2015, assume that the other 2 checkins were ON or BEFORE July 1st, 2010, and use that to update the checkin count for the type(s) accordingly. Similarly, if the person has checked in *once* to a place AFTER the cutoff date (e.g., on July 2nd, 2010), you must NOT consider these checkins.
+
+As already mentioned, while reading the reviews, you should keep track of the number of times that each TYPE of establishment has been visited, by properly considering the check-in counts. Types are uniquely identified by their NAME, as it appears on the website (e.g., "Coffee & Tea").
+
+After reading the reviews and computing the requested information, you should create a file called type_freqs.txt
+In that file, you must write the TYPE and its associated CHECK-IN count that meet the conditions / criteria described above, and which you have collected with your script.
+Each such pair (TYPE, COUNT) must appear on a SEPARATE line, and the two values need to be separated by a COMMA.
+The output MUST be sorted lexicographically by the TYPE.
+Sample output for the given URL is shown below.
+
+Coffee & Tea,4
+Latin American,1
+Mexican,1
+Yoga,1
+
+EXPLANATION: Why is this the output? Reviewed places with no check-in information are ignored. Places with 1 checkin have been reviewed AFTER the cutoff date ( July 1st, 2010 ). There are 3 places with multiple checkins: Starbucks (5 checkins), Nandi Yoga (2 checkins), The New Spot (2 checkins). The most recent check-in in each one is AFTER the cutoff date, so according to the description every OTHER checkin is prior to the cutoff, resulting in Starbucks=> 4 checkins, Nandi Yoga=> 1 checkin, and The New Spot => 1 checkin. Cross-check with the types of these places, and you should see that the above values are correct (The New Spot has 2 types, not 1).
+
+
+IMPORTANT: Handling UPDATED REVIEWS
+In certain cases, the user may have updated an earlier review, at a much later date. In cases like that, use the most recent date (i.e., the one that appears first) to determine how many checkins you should assign to the given type(s). In other words, ignore the date of the previous review and just focus on the most recent one.
+
+
+HINT: Do NOT use regular expressions blindly. Split the received HTML first, so that you can extract the proper information.
+HINT: Find a convenient way to test for dates. Remember that you can use the "Help" tab to get useful links.
+HINT: The assignment uses things that we have already worked on. If you can use things from your previous scripts, *do so* ! It will save you time and effort! You can also use the "solution" scripts that are on canvas, if that makes you feel more comfortable.
+
+
+Things to look out for:
+1) Make sure that you correctly capture the number of check-ins
+2) Make sure that your code works for UPDATED REVIEWS. Check the 3rd page of reviews for the given URL
+
+
+* ATTENTION: Do NOT use Selenium. Do NOT use libraries which are not built-in into python (e.g., beautifoul soup, scrapy, etc). In both cases, you'll be getting errors. Use urllib2 for the assignment.
+* ATTENTION: Make sure that your input works in the GENERAL case. For example, TEST with the given profile for the 3rd page. Beware of the UPDATED review.
+* ATTENTION: Please note that the assignment asks for the reviews that appear on the given URL page ONLY.
+* ATTENTION: Please note the cutoff date. It is "July 1st, 2010" (NOT 2015).

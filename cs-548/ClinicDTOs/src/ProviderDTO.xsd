@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.example.org/clinic/schemas/provider-dto"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://www.example.org/clinic/schemas/provider-dto">
+	
+	<element name="providerDTO">
+ 		<complexType>
+			<sequence>
+	         <element name="NPI" type="long"/>
+	         <element name="name" type="string"/>
+	         <element name="specialization" type="tns:SpeicalizationType"/>
+	         <element name="treatments" type="long" maxOccurs="unbounded" nillable="true"/>
+	      </sequence>
+		</complexType>
+ 	</element>
+ 	
+ 	<simpleType name="SpeicalizationType">
+		<restriction base="string">
+			<enumeration value="Unknown"></enumeration>
+			<enumeration value="Radiology"></enumeration>
+			<enumeration value="Surgery"></enumeration>
+			<enumeration value="Oncology"></enumeration>
+		</restriction>
+	</simpleType>
+ 	
+</schema>

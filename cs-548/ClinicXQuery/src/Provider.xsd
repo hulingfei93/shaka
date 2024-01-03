@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://www.lhu4.com/cs-548/schemas/clinic/provider"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.lhu4.com/cs-548/schemas/clinic/provider"
+	xmlns:ids="http://www.lhu4.com/cs-548/schemas/clinic/clinic_ids">
+	<import schemaLocation="ClinicIds.xsd"
+		namespace="http://www.lhu4.com/cs-548/schemas/clinic/clinic_ids"></import>
+
+	<complexType name="ProviderType">
+		<sequence>
+			<element name="providerId" type="ids:ProviderIdType"></element>
+			<element name="name" type="string"></element>
+			<element name="specialization" type="tns:SpeicalizationType"></element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="SpeicalizationType">
+		<restriction base="string">
+			<enumeration value="Radiology"></enumeration>
+			<enumeration value="Surgery"></enumeration>
+			<enumeration value="Oncology"></enumeration>
+		</restriction>
+	</simpleType>
+</schema>

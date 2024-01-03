@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.example.org/clinic/schemas/treatment-dto"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://www.example.org/clinic/schemas/treatment-dto">
+	
+	<annotation>
+		<appinfo>
+			<jaxb:globalBindings>
+				<jaxb:javaType
+					name="java.util.Date" 
+					xmlType="date" 
+					parseMethod="edu.stevens.cs548.clinic.service.dto.DateAdapter.parseDate"
+					printMethod="edu.stevens.cs548.clinic.service.dto.DateAdapter.printDate"
+				/>
+			</jaxb:globalBindings>
+		</appinfo>
+	</annotation>
+ 
+ 	<element name="TreatmentDTO">
+ 		<complexType>
+			<sequence>
+				<element name="id" type="long"></element>
+				<element name="patientDbId" type="long"></element>
+				<element name="providerNPI" type="long"></element>
+				<element name="diagnosis" type="string"></element>
+				<choice>
+					<element name="drugTreatment" type="tns:DrugTreatmentType"></element>
+					<element name="surgeryTreatment" type="tns:SurgeryTreatmentType"></element>
+					<element name="radiologyTreatment" type="tns:RadiologyTreatmentType"></element>
+				</choice>
+			</sequence>
+		</complexType>
+ 	</element>
+ 	
+	<complexType name="DrugTreatmentType">
+		<sequence>
+			<element name="drugName" type="string"></element>
+			<element name="dosage" type="float"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="SurgeryTreatmentType">
+		<sequence>
+			<element name="date" type="date"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="RadiologyTreatmentType">
+		<sequence>
+			<element name="date" type="date"
+				maxOccurs="unbounded">
+			</element>
+		</sequence>
+	</complexType>
+
+	
+</schema>

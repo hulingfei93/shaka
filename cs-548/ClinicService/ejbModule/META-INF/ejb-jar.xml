@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd" version="3.2">
+  <display-name>ClinicService</display-name>
+<!--   <ejb-client-jar>ClinicServiceClient.jar</ejb-client-jar> -->
+  <enterprise-beans>
+  	<session>
+  		<ejb-name>PatientServiceBean</ejb-name>
+  		<env-entry>
+  			<description>Site deployment information for the patient service.</description>
+  			<env-entry-name>SiteInfo</env-entry-name>
+  			<env-entry-type>java.lang.String</env-entry-type>
+  			<env-entry-value>WeACT-x</env-entry-value>
+  		</env-entry>
+  	</session>
+  </enterprise-beans>
+</ejb-jar>

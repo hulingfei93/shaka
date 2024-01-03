@@ -1,0 +1,30 @@
+Group Members:
+	Lingfei Hu(lhu4)
+	Yong Cao(ycao18)
+
+
+Collaboration:
+	lhu4: options parsing, command parsing/tokenization, fork-exec commands, pipeline
+	ycao18: builtins, I/O redirection, backgrounding of processes, test on linux-lab as well as cs631apue.netmeister.org
+
+How to share code:
+	We did code review after any changes by each of us, then submitted the code to github.com
+
+Test Cases:
+	./sish -c "lllll -l | kkkk"
+	./sish -c "ls -l|wc -l"
+	./sish -c "ls -l | &wc -l"
+	./sish -c "cat | wc -l"
+	./sish -c "cat | wc -l&"
+	./sish -c "cat & | wc -l"
+	./sish -c "cat & wc -l"
+	./sish -c "cat & wc -l |"
+	./sish -c "cat | cat | cat"
+	./sish -c "cat & cat & cat"
+	./sish -c "cat | cat | echo"
+	./sish -c "ls -l >out | wc -l"
+	./sish -c "ls -l >out | wc -l &"
+	./sish -c "ls -l >out & wc -l &"
+	./sish -c "ls -l >out | <in cat >out2" -x
+	./sish -c "ls -l >out | <in cat >>out2" -x
+	

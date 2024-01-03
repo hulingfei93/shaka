@@ -1,0 +1,27 @@
+You are given an input file called input.txt that contains ONE URL (link) to the profile page of a shop reviewed on Yelp.
+An example URL is the following:
+
+http://www.yelp.com/biz/tonga-room-and-hurricane-bar-san-francisco
+
+In every such profile page, Yelp provides numerous "Recommended Reviews", written by several users who have visited the place.
+People can then vote on each review and express whether they found it:
+- Useful
+- Funny
+- Cool
+
+Your task is to write a Python script that reads the input file, and for each user who appears on the page of that URL (and ONLY that URL) it will extract the number of Useful, Funny and Cool votes that the reviewer has received.
+Then, for each user the SUM of these votes will be computed, so that each user is associated with a SINGLE number (the sum of different votes they have received).
+
+In the end, the script should create an output file called output.txt
+In that file you will write the name of a user as it appears on the page, accompanied by the sum of votes that they have received.
+If there are multiple users with the same name, assume that they are the SAME user.
+Each user must appear on a separate line, with their information written as TAB-separated values.
+The contents of the file MUST be lexicographically sorted by the user name.
+
+Aaron P. 11
+Allison O. 2
+Aly H. 1
+...
+
+ATTENTION: Make sure that your script works in the GENERAL case, not just for the webpage I provided as an example!
+HINT: Check out the 2nd page of reviews of the URL that I have provided.

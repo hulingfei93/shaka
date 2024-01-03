@@ -1,0 +1,31 @@
+You need to write a Python script that reads an input file with the name input.txt
+The input file contains the link to the profile page of a reviewer on Yelp ( www.yelp.com )
+An example of the link contained in the file is shown below:
+
+http://www.yelp.com/user_details?userid=9I1w-E6w5c5FZhkXXLodZA
+
+
+You Python script must go through ALL of the reviews of that reviewer and find the PRICE DISTRIBUTION of the places that this person has reviewed.
+We also want to know the NUMBER of PAGES that these reviews span over.
+
+The price distribution refers to the NUMBER OF TIMES that we encounter each price range.
+
+Yelp uses 4 price ranges, denoted by the dollar sign: $, $$, $$$, $$$$
+So, we want to know how many times that person has reviewed places with 1 dollar ($), 2 dollars ($$), etc.
+
+In the end your script must write the number of pages and the price distribution to a file named yelp_counts.txt
+More specifically, the first line must be the number of pages that the reviews span over.
+Then, report the number of times the reviewer visited places with $. In the following line, report the number of times the reviewer visited places with $$, etc
+
+
+Example: Consider a reviewer who has reviewed 5 places with $, 0 places with $$, 10 places with $$$ and 1 place with $$$$.
+These reviews (along with some others that may be missing the dollar sign), are spread over 3 pages.
+The file yelp_counts.txt for such a reviewer should contain the following:
+3
+5
+0
+10
+1
+
+
+There is NO need for selenium to solve this assignment.

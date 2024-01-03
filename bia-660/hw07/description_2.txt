@@ -1,0 +1,24 @@
+Consider the previous extra credit assignment of Week 7, regarding typed checkins. In that assignment you were asked to process ONLY the reviews of the given URL.
+
+Modify your script so that it works for ALL pages of reviews for the given user URL, found in the profile.txt input file.
+
+As an example, if you are given the following user profile URL: http://www.yelp.com/user_details_reviews_self?userid=9I1w-E6w5c5FZhkXXLodZA you should extract the typed checkins for all 9 pages of reviews.
+
+Other than that, the same rules of the previous assignment apply: Your input file is profile.txt and it contains only 1 URL.
+The retrieved information must be written to an output file called type_freqs.txt
+In that file, you must write the TYPE and its associated CHECK-IN according to the specifications described in the previous assignment.
+Each such pair (TYPE, COUNT) must appear on a SEPARATE line, and the two values need to be separated by a COMMA.
+The output MUST be sorted lexicographically by the TYPE.
+
+Sample output for the given URL is shown below:
+
+Afghan,4
+American (New),1
+Bakeries,2
+Barbeque,1
+...
+
+Updated reviews and multiple checkins must be dealt with in the same way as explained in the previous assignment. The cutoff date is (again) July 1st, 2010.
+
+* ATTENTION: Do NOT use Selenium. Do NOT use libraries which are not built-in into python (e.g., beautifoul soup, scrapy, etc). In both cases, you'll be getting errors. Use urllib2 for the assignment.
+* ATTENTION: Make sure that your input works in the GENERAL case. For example, TEST with the given profile for the 3rd page. Beware of the UPDATED review.

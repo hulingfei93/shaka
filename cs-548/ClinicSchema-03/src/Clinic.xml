@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Clinic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lhu4.com/cs-548/assignment02/schemas/clinic Clinic.xsd" 
+	xmlns="http://www.lhu4.com/cs-548/assignment02/schemas/clinic"
+	xmlns:pat="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/patient" 
+	xmlns:ids="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/clinic_ids" 
+	xmlns:trmt="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/treatment" 
+	xmlns:prov="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/provider">
+	
+	<patient>
+		<pat:patientId>357278</pat:patientId>
+		<pat:name>Brown</pat:name>
+		<pat:birthDate>1965-05-06</pat:birthDate>
+		<pat:treatments>
+			<trmt:RadiologyTreatment>
+				<trmt:ProviderId>694594</trmt:ProviderId>
+				<trmt:diagnosis>liver cancer</trmt:diagnosis>
+					<trmt:date>2011-09-06</trmt:date>
+					<trmt:date>2012-11-15</trmt:date>
+					<trmt:date>2013-05-08</trmt:date>
+			</trmt:RadiologyTreatment>
+		</pat:treatments>
+	</patient>
+	
+	<patient>
+		<pat:patientId>848032</pat:patientId>
+		<pat:name>Jones</pat:name>
+		<pat:birthDate>1988-03-18</pat:birthDate>
+		<pat:treatments>
+			<trmt:SurgeryTreatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>Appendicitis</trmt:diagnosis>
+				<trmt:date>1991-02-16</trmt:date>
+			</trmt:SurgeryTreatment>
+			<trmt:SurgeryTreatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>Heart disease</trmt:diagnosis>
+				<trmt:date>2014-08-23</trmt:date>
+			</trmt:SurgeryTreatment>
+		</pat:treatments>
+	</patient>
+	
+	<patient>
+		<pat:patientId>367267</pat:patientId>
+		<pat:name>Davis</pat:name>
+		<pat:birthDate>1996-01-25</pat:birthDate>
+		<pat:treatments>
+			<trmt:DrugTreatment>
+				<trmt:ProviderId>936767</trmt:ProviderId>
+				<trmt:diagnosis>throat cancer</trmt:diagnosis>
+				<trmt:drugName>chemotherapy drug</trmt:drugName>
+				<trmt:dosage>2.8</trmt:dosage>
+			</trmt:DrugTreatment>
+		</pat:treatments>
+	</patient>
+	
+	<provider>
+		<prov:providerId>694594</prov:providerId>
+		<prov:name>Smith</prov:name>
+		<prov:specialization>Radiology</prov:specialization>
+	</provider>
+	
+	<provider>
+		<prov:providerId>576834</prov:providerId>
+		<prov:name>Johnson</prov:name>
+		<prov:specialization>Surgery</prov:specialization>
+	</provider>
+	
+	<provider>
+		<prov:providerId>936767</prov:providerId>
+		<prov:name>Williams</prov:name>
+		<prov:specialization>Oncology</prov:specialization>
+	</provider>
+	
+</Clinic>

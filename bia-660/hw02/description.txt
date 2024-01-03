@@ -1,0 +1,9 @@
+You are given a file called input.txt just like the one we saw in class.
+The file contains 1 review per line.
+You are also given the file positive-words.txt, which includes one positive word per line.
+You are requested to write a python script that will find ALL positive tokens that appear in the LONGEST review, which (the review) does NOT contain 42 words or more.
+The result must be written to a file called long_positive.txt
+Each positive word that is part of the result must be in each own line (one word per line).
+
+HINT: Your result should contain two words
+

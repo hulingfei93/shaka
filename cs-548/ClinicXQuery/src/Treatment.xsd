@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://www.lhu4.com/cs-548/schemas/clinic/treatment"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.lhu4.com/cs-548/schemas/clinic/treatment"
+	xmlns:ids="http://www.lhu4.com/cs-548/schemas/clinic/clinic_ids">
+
+	<import schemaLocation="ClinicIds.xsd"
+		namespace="http://www.lhu4.com/cs-548/schemas/clinic/clinic_ids"></import>
+	<complexType name="TreatmentType">
+		<sequence>
+			<element name="ProviderId" type="ids:ProviderIdType"></element>
+			<element name="diagnosis" type="string"></element>
+			<choice>
+				<element name="drugTreatment" type="tns:DrugTreatmentType"></element>
+				<element name="surgeryTreatment" type="tns:SurgeryTreatmentType"></element>
+				<element name="radiologyTreatment" type="tns:RadiologyTreatmentType"></element>
+			</choice>
+		</sequence>
+	</complexType>
+
+	<complexType name="DrugTreatmentType">
+		<sequence>
+			<element name="drugName" type="string"></element>
+			<element name="dosage" type="float"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="SurgeryTreatmentType">
+		<sequence>
+			<element name="date" type="date"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="RadiologyTreatmentType">
+		<sequence>
+			<element name="date" type="date" minOccurs="1" maxOccurs="unbounded">
+			</element>
+		</sequence>
+	</complexType>
+</schema>

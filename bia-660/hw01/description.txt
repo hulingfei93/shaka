@@ -1,0 +1,26 @@
+You are given a file named input.txt
+
+The file contains posts by several people.
+Each post is a single line in the file that was provided.
+Values in each line are separated by the "@" character, just like we saw in the class.
+The difference is that each line now contains 4 values, in the following order
+
+The first value in a line is the state where that person posted from
+The second value is the name of the person who made the post
+The third value is the day of the week
+The last value is the text of the post
+
+
+A sample line from the file is the following
+
+NJ@George@Thursday@We meet for BIA 660 every Thursday
+
+
+Your assignment is to write a single python script that will read the file and
+find which words appear only once in all of the posts that we have available.
+
+
+The script should write the results to a file, named output.txt
+Each unique word must appear in a single line.
+
+

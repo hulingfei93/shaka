@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clin:clinic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lhu4.com/cs-548/schemas/clinic Clinic.xsd"
+	xmlns:pat="http://www.lhu4.com/cs-548/schemas/clinic/patient"
+	xmlns:ids="http://www.lhu4.com/cs-548/schemas/clinic/clinic_ids"
+	xmlns:trmt="http://www.lhu4.com/cs-548/schemas/clinic/treatment"
+	xmlns:prov="http://www.lhu4.com/cs-548/schemas/clinic/provider" xmlns:clin="http://www.lhu4.com/cs-548/schemas/clinic">
+
+	<clin:patient>
+		<pat:patientId>357278</pat:patientId>
+		<pat:name>Brown</pat:name>
+		<pat:birthDate>1965-05-06</pat:birthDate>
+		<pat:treatments>
+			<pat:treatment>
+				<trmt:ProviderId>694594</trmt:ProviderId>
+				<trmt:diagnosis>liver cancer</trmt:diagnosis>
+				<trmt:radiologyTreatment>
+					<trmt:date>2011-09-06</trmt:date>
+					<trmt:date>2012-11-15</trmt:date>
+					<trmt:date>2013-05-08</trmt:date>
+				</trmt:radiologyTreatment>
+			</pat:treatment>
+			<pat:treatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>Appendicitis</trmt:diagnosis>
+				<trmt:surgeryTreatment>
+					<trmt:date>1996-04-25</trmt:date>
+				</trmt:surgeryTreatment>
+			</pat:treatment>
+			<pat:treatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>cold</trmt:diagnosis>
+				<trmt:drugTreatment>
+					<trmt:drugName>cold medication</trmt:drugName>
+					<trmt:dosage>18.0</trmt:dosage>
+				</trmt:drugTreatment>
+			</pat:treatment>
+		</pat:treatments>
+	</clin:patient>
+
+	<clin:patient>
+		<pat:patientId>848032</pat:patientId>
+		<pat:name>Jones</pat:name>
+		<pat:birthDate>1988-03-18</pat:birthDate>
+		<pat:treatments>
+			<pat:treatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>Appendicitis</trmt:diagnosis>
+				<trmt:surgeryTreatment>
+					<trmt:date>1991-02-16</trmt:date>
+				</trmt:surgeryTreatment>
+			</pat:treatment>
+			<pat:treatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>Heart disease</trmt:diagnosis>
+				<trmt:surgeryTreatment>
+					<trmt:date>2014-08-23</trmt:date>
+				</trmt:surgeryTreatment>
+			</pat:treatment>
+			<pat:treatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>cold</trmt:diagnosis>
+				<trmt:drugTreatment>
+					<trmt:drugName>cold medication</trmt:drugName>
+					<trmt:dosage>12.0</trmt:dosage>
+				</trmt:drugTreatment>
+			</pat:treatment>
+		</pat:treatments>
+	</clin:patient>
+
+	<clin:patient>
+		<pat:patientId>367267</pat:patientId>
+		<pat:name>Davis</pat:name>
+		<pat:birthDate>1996-01-25</pat:birthDate>
+		<pat:treatments>
+			<pat:treatment>
+				<trmt:ProviderId>936767</trmt:ProviderId>
+				<trmt:diagnosis>throat cancer</trmt:diagnosis>
+				<trmt:drugTreatment>
+					<trmt:drugName>chemotherapy drug</trmt:drugName>
+					<trmt:dosage>2.8</trmt:dosage>
+				</trmt:drugTreatment>
+			</pat:treatment>
+			<pat:treatment>
+				<trmt:ProviderId>576834</trmt:ProviderId>
+				<trmt:diagnosis>cold</trmt:diagnosis>
+				<trmt:drugTreatment>
+					<trmt:drugName>cold medication</trmt:drugName>
+					<trmt:dosage>15.0</trmt:dosage>
+				</trmt:drugTreatment>
+			</pat:treatment>
+			<pat:treatment>
+				<trmt:ProviderId>694594</trmt:ProviderId>
+				<trmt:diagnosis>liver cancer</trmt:diagnosis>
+				<trmt:radiologyTreatment>
+					<trmt:date>2011-09-06</trmt:date>
+					<trmt:date>2012-11-15</trmt:date>
+					<trmt:date>2013-05-08</trmt:date>
+				</trmt:radiologyTreatment>
+			</pat:treatment>
+		</pat:treatments>
+	</clin:patient>
+
+	<clin:provider>
+		<prov:providerId>694594</prov:providerId>
+		<prov:name>Smith</prov:name>
+		<prov:specialization>Radiology</prov:specialization>
+	</clin:provider>
+
+	<clin:provider>
+		<prov:providerId>576834</prov:providerId>
+		<prov:name>Johnson</prov:name>
+		<prov:specialization>Surgery</prov:specialization>
+	</clin:provider>
+
+	<clin:provider>
+		<prov:providerId>936767</prov:providerId>
+		<prov:name>Williams</prov:name>
+		<prov:specialization>Oncology</prov:specialization>
+	</clin:provider>
+
+</clin:clinic>

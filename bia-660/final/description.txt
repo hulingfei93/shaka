@@ -1,0 +1,19 @@
+There are two files, one called training.txt and a second one called testing.txt
+
+The first file (training.txt) includes 1 review per line and 2 tab-separated columns. The first column is the review text and the second column is the label (1 for positive, 0 for negative).
+
+The second file includes 1 review per line. The line includes only the text of the review, but not the label.
+This is similar to the setting that we have seen in class, with some in-class assignments.
+
+Your script should predict the label for each of the reviews in testing.txt.
+It should then write the labels to a file called predictions.txt
+Write one label per line (1 for positive 0 for negative), as follows:
+
+0
+1
+0
+1
+1
+0
+
+Your script should execute in 10 minutes or less.

@@ -1,0 +1,29 @@
+／＊＊＊＊＊＊＊＊＊＊＊＊＊＊　拿到Offer的四大法宝　＊＊＊＊＊＊＊＊＊＊＊＊＊＊／
+1.摆正心态：一个月搞定面试算法不代表你每周上4小时课就可以搞定，上课的目的是学习通用的解题的思路，而不是押宝面试题都会讲到
+2.与面试官愉快交谈：一起合作解决面试问题，而非争论不休，证明自己牛逼，但别去证明面试官傻逼
+3.理解而不是单纯的背诵：在课程中主要学习的是思维方式和分析技巧，而不是某个题的解法
+4.刀要用在刀刃上：不要把时间浪费在那些基本不会考你又很心虚的内容，比如KMP，红黑树，AVL，ACM竞赛题
+
+／＊＊＊＊＊＊＊＊＊＊＊＊＊＊　Binary Search　＊＊＊＊＊＊＊＊＊＊＊＊＊＊／
+复杂度分析：T(n) = T(n/2) + O(1) = O(log n)
+算法面试中如果需要优化O(n)的时间复杂度, 那么几乎只能是O(logn)的二分法
+
+1. low <= high
+	mid = low + (high - low) / 2
+	low = mid + 1	high = mid - 1
+	
+2. low + 1 < high
+	mid = low + (high - low) / 2
+	low = mid	high = mid
+	nums[low] == target	nums[high] == target
+	
+3. low < high
+	/** left boundary **/
+	mid = low + (high - low) / 2
+	low = mid + 1	high = mid
+	
+	/** right boundary **/
+	mid = low + (high - low) / 2 + 1
+	low = mid	high = mid - 1
+
+	

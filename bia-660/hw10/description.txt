@@ -1,0 +1,43 @@
+You are given a file called input.txt that contains multiple sentences, one sentence per line.
+
+Your script should read the file and for each sentence, in its LOWER CASE form, find the FIRST ADJECTIVE that is AT MOST 2 tokens AFTER the word "not".
+Note that we want only the FIRST adjective. If there are multiple consecutive adjectives, we only care about the first.
+However, if there are MULTIPLE cases in the same sentence (i.e., multiple "not" tokens), your script must find all of them.
+
+For each sentence, the script should write to a file the ADJECTIVES that have been found, that meet the above criteria (i.e., adjective is after a "not").
+If there are multiple occurrences of the pattern, ALL adjectives MUST be written as comma separated values, in the same order that they appear in the original sentence.
+The adjectives that are output should appear EXACTLY like in the original sentence.
+
+
+Explanation through an example:
+Let's say that the word "not" appears in position 5. Then, we care about adjectives in positions 6 OR 7 (whichever comes first). This is the meaning of "AT MOST 2 tokens AFTER". 
+If there are two adjectives, one at position 6 and one at position 7, we are only interested in the one at position 6 (only consider the first adjective).
+If there is an adjective at position 8, it is not a match for position 5, because it is MORE than 2 tokens AFTER the word "not".
+
+Consider the sentence:
+That was not cool
+
+The respective output in the file should be:
+cool
+
+because the word "cool" is and adjective in that sentence and it is 1 token AFTER the appearance of a "not".
+
+The requested information must be written to a file called negations.txt
+Each line in the output file should contain the identified adjectives of the respective input sentence.
+
+
+UBER IMPORTANT: Your script should use the following python code, otherwise it will MOST LIKELY timeout (i.e., will be very slow).
+
+import nltk.data
+_POS_TAGGER = 'taggers/maxent_treebank_pos_tagger/english.pickle'
+tagger=nltk.data.load( _POS_TAGGER )
+
+
+An example of POS tagging using the above tagger is shown below:
+
+tagged_tokens = tagger.tag( 'This is a sentence' )
+
+
+NOTE 1: Make sure that you LOWER CASE the sentence to apply POS Tagging. Make ALSO sure that you use the ORIGINAL tokens when writing to a file.
+Note 2: Make sure that you match ALL forms of the word "not", regardless of casing
+Note 3: Adjectives that meet the criteria must be written in the SAME form as they appear in the input file.

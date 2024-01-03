@@ -1,0 +1,25 @@
+You are given a file called train.txt that has the same structure as the reviews_train.txt that we saw in class. 
+More specifically, it has 2 columns, separated by a TAB character. The first column is the text of the review. The second column is the class value for the review (either 0 or 1). 
+
+You are also given another file, called test.txt which has ONLY 1 column, the text of the review. 
+Your task is to write a python script that will fit a model on the training file (train.txt) and predict the class of the text that appears in the testing file (test.txt). 
+
+Your script must write the PREDICTED class ONLY in a file called predictions.txt 
+Each prediction must appear on a separate line. Sample output: 
+
+0 
+1 
+1 
+0 
+1 
+0 
+0 
+0 
+
+etc. 
+
+Your task is to write a python script that will achieve at least 60% accuracy ( >= 0.60). 
+You can use ANY model that you want, you do not need to restrict yourselves on the KNN classifier. You can experiment with the parameters of the KNN classifier, as well as other models. 
+Experiment with different models that are available. 
+
+Remember to POST links of the models that you used, if you found them useful and helped you solve the accuracy.

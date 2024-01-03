@@ -1,0 +1,33 @@
+You are given a file called input.txt
+
+The file includes the username of a different freelancer in each line. For example:
+thetechie13
+appstudiozsl
+
+etc.
+
+
+These are valid usernames, that belong to freelancers on https://www.freelancer.com
+For each freelancer, we want to get information about them in a structured way.
+More specifically, for each freelancer, we want the following information: 
+
+Attr1: Percentage of jobs completed
+Attr2: Percentage of jobs on budget
+Attr3: Percentage of jobs delivered on time
+Attr4: Percentage of repeated hire rate
+
+
+Your job is to write a python script that will read through the file input.txt and extract the desired information for every freelancer in that file.
+The script must write the extracted information to a file called stats.txt where the information of each freelancer is on a separate line.
+
+The information that you write in the stats.txt file must be separated by a semi-colon ( ; ) and must have the following format:
+
+username;Attr1;Attr2;Attr3;Attr4
+
+
+We are only interested in the NUMERICAL value, not the percentage sign. For example, for the freelancer "thetechie13", the corresponding output line will be:
+
+thetechie13;88;96;86;21
+
+
+The order of the users in stats.txt should be the same as in input.txt
