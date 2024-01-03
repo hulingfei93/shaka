@@ -4,57 +4,57 @@
 *****************************************************/
 int
 binary_search(int *nums, int nums_size, int target) {
-	if (nums_size < 1) {
-		return -1;
-	}
+    if (nums_size < 1) {
+        return -1;
+    }
 
-	int low = 0, high = nums_size - 1, mid;
-	
-	while (low <= high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] == target) {
-			return mid;
-		}
-		else if (nums[mid] < target) {
-			low = mid + 1;
-		}
-		else {
-			high = mid - 1;
-		}
-	}
+    int low = 0, high = nums_size - 1, mid;
+    
+    while (low <= high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        }
+        else if (nums[mid] < target) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
 
-	return -1;
+    return -1;
 }
 
 int
 binary_search_v2(int *nums, int nums_size, int target) {
-	if (nums_size < 1) {
-		return -1;
-	}
+    if (nums_size < 1) {
+        return -1;
+    }
 
-	int low = 0, high = nums_size - 1, mid;
-	
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] == target) {
-			return mid;
-		}
-		else if (nums[mid] < target) {
-			low = mid;
-		}
-		else {
-			high = mid;
-		}
-	}
+    int low = 0, high = nums_size - 1, mid;
+    
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        }
+        else if (nums[mid] < target) {
+            low = mid;
+        }
+        else {
+            high = mid;
+        }
+    }
 
-	if (nums[low] == target) {
-		return low;
-	}
-	if (nums[high] == target) {
-		return high;
-	}
+    if (nums[low] == target) {
+        return low;
+    }
+    if (nums[high] == target) {
+        return high;
+    }
 
-	return -1;
+    return -1;
 }
 
 /*****************************************************
@@ -75,53 +75,53 @@ binary_search_v2(int *nums, int nums_size, int target) {
  *
 *****************************************************/
 int search_insert(int *nums, int nums_size, int target) {
-	if (nums_size < 1) {
-		return 0;
-	}
+    if (nums_size < 1) {
+        return 0;
+    }
 
-	int low = 0, high = nums_size - 1, mid;
-	while (low <= high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] == target) {
-			return mid;
-		}
-		else if (nums[mid] < target) {
-			low = mid + 1;
-		}
-		else {
-			high = mid - 1;
-		}
-	}
+    int low = 0, high = nums_size - 1, mid;
+    while (low <= high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        }
+        else if (nums[mid] < target) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
 
-	return low;
+    return low;
 }
 
 int search_insert_v2(int *nums, int nums_size, int target) {
-	if (nums_size < 1) {
-		return 0;
-	}
+    if (nums_size < 1) {
+        return 0;
+    }
 
-	int low = 0, high = nums_size - 1, mid;
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] == target) {
-			return mid;
-		}
-		else if (nums[mid] < target) {
-			low = mid;
-		}
-		else {
-			high = mid;
-		}
-	}
+    int low = 0, high = nums_size - 1, mid;
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        }
+        else if (nums[mid] < target) {
+            low = mid;
+        }
+        else {
+            high = mid;
+        }
+    }
 
-	if (nums[low] >= target) {
-		return low;
-	}
-	if (nums[high] >= target) {
-		return high;
-	}
-	return high + 1;
+    if (nums[low] >= target) {
+        return low;
+    }
+    if (nums[high] >= target) {
+        return high;
+    }
+    return high + 1;
 }
 
 /*****************************************************
@@ -138,123 +138,123 @@ int search_insert_v2(int *nums, int nums_size, int target) {
 *****************************************************/
 int *
 search_range(int *nums, int nums_size, int target, int *return_size) {
-	
-	int low, high, mid;
-	int *range;
+    
+    int low, high, mid;
+    int *range;
 
-	range = (int *)malloc(sizeof(int) * 2);
-	range[0] = range[1] = -1;
-	*return_size = 2;
+    range = (int *)malloc(sizeof(int) * 2);
+    range[0] = range[1] = -1;
+    *return_size = 2;
 
-	if (nums_size < 1) {
-		return range;
-	}
+    if (nums_size < 1) {
+        return range;
+    }
 
-	low = 0;
-	high = nums_size - 1;
+    low = 0;
+    high = nums_size - 1;
 
-	/* search left boundary */
-	while (low < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] < target) {
-			low = mid + 1;
-		}
-		else {
-			high = mid;
-		}
-	}
+    /* search left boundary */
+    while (low < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] < target) {
+            low = mid + 1;
+        }
+        else {
+            high = mid;
+        }
+    }
 
-	if (nums[low] != target) {
-		return range;
-	}
+    if (nums[low] != target) {
+        return range;
+    }
 
-	range[0] = low;
+    range[0] = low;
 
-	low = 0;
-	high = nums_size - 1;
+    low = 0;
+    high = nums_size - 1;
 
-	/* search right boundary */
-	while (low < high) {
-		mid = low + (high - low) / 2 + 1;
-		if (nums[mid] <= target) {
-			low = mid;
-		}
-		else {
-			high = mid - 1;
-		}
-	} 
+    /* search right boundary */
+    while (low < high) {
+        mid = low + (high - low) / 2 + 1;
+        if (nums[mid] <= target) {
+            low = mid;
+        }
+        else {
+            high = mid - 1;
+        }
+    } 
 
-	range[1] = low;
+    range[1] = low;
 
-	return range;
+    return range;
 }
 
 int *
 search_range_v2(int *nums, int nums_size, int target, int *return_size) {
-	
-	int low, high, mid;
-	int *range;
+    
+    int low, high, mid;
+    int *range;
 
-	range = (int *)malloc(sizeof(int) * 2);
-	range[0] = range[1] = -1;
-	*return_size = 2;
+    range = (int *)malloc(sizeof(int) * 2);
+    range[0] = range[1] = -1;
+    *return_size = 2;
 
-	if (nums_size < 1) {
-		return range;
-	}
+    if (nums_size < 1) {
+        return range;
+    }
 
-	low = 0;
-	high = nums_size - 1;
+    low = 0;
+    high = nums_size - 1;
 
-	/* search left boundary */
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] == target) {
-			high = mid;
-		}
-		else if (nums[mid] < target) {
-			low = mid;
-		}
-		else {
-			high = mid;
-		}
-	}
+    /* search left boundary */
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            high = mid;
+        }
+        else if (nums[mid] < target) {
+            low = mid;
+        }
+        else {
+            high = mid;
+        }
+    }
 
-	if (nums[low] == target) {
-		range[0] = low;
-	}
-	else if (nums[high] == target) {
-		range[0] = high;
-	}
-	else {
-		return range;
-	}
+    if (nums[low] == target) {
+        range[0] = low;
+    }
+    else if (nums[high] == target) {
+        range[0] = high;
+    }
+    else {
+        return range;
+    }
 
-	low = 0;
-	high = nums_size - 1;
+    low = 0;
+    high = nums_size - 1;
 
-	/* search right boundary */
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] == target) {
-			low = mid;
-		}
-		else if (nums[mid] < target) {
-			low = mid;
-		}
-		else {
-			high = mid;
-		}
-	} 
+    /* search right boundary */
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            low = mid;
+        }
+        else if (nums[mid] < target) {
+            low = mid;
+        }
+        else {
+            high = mid;
+        }
+    } 
 
-	if (nums[high] == target) {
-		range[1] = high;
-	}
-	else {
-		range[1] = low;
-	}
+    if (nums[high] == target) {
+        range[1] = high;
+    }
+    else {
+        range[1] = low;
+    }
 
-	return range;
+    return range;
 }
 
 /*****************************************************
@@ -269,31 +269,31 @@ search_range_v2(int *nums, int nums_size, int target, int *return_size) {
 
 int 
 my_sqrt(int x) {
-	if (x == 0) {
-		return 0;
-	}
+    if (x == 0) {
+        return 0;
+    }
 
-	int low = 1, high = x, mid, k;
+    int low = 1, high = x, mid, k;
 
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		k = x / mid;
-		if (k == mid) {
-			low = mid;
-		}
-		else if (k < mid) {
-			high = mid;
-		}
-		else {
-			low = mid;
-		}
-	}
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        k = x / mid;
+        if (k == mid) {
+            low = mid;
+        }
+        else if (k < mid) {
+            high = mid;
+        }
+        else {
+            low = mid;
+        }
+    }
 
-	if (x / high >= high) {
-		return high;
-	}
+    if (x / high >= high) {
+        return high;
+    }
 
-	return low;
+    return low;
 }
 
 /*****************************************************
@@ -303,8 +303,8 @@ my_sqrt(int x) {
  * Write an efficient algorithm that searches for a value 
  * in an m x n matrix. This matrix has the following properties:
  *
- *		Integers in each row are sorted from left to right.
- *		The first integer of each row is greater than the last integer of the previous row.
+ *      Integers in each row are sorted from left to right.
+ *      The first integer of each row is greater than the last integer of the previous row.
  * 
  * For example,
  *
@@ -322,131 +322,131 @@ my_sqrt(int x) {
 bool
 search_matrix(int **matrix, int matrix_row_size, int matrix_col_size, int target) {
 
-	int m = matrix_row_size, n = matrix_col_size;
+    int m = matrix_row_size, n = matrix_col_size;
 
-	if (m < 1 || n < 1) {
-		return false;
-	}
+    if (m < 1 || n < 1) {
+        return false;
+    }
 
-	int low, high, mid;
+    int low, high, mid;
 
-	low = 0;
-	high = m - 1;
+    low = 0;
+    high = m - 1;
 
-	while (low <= high) {
-		mid = low + (high - low) / 2;
+    while (low <= high) {
+        mid = low + (high - low) / 2;
 
-		if (matrix[mid][0] == target) {
-			return true;
-		}
-		else if (matrix[mid][0] > target) {
-			high = mid - 1;
-		}
-		else {
-			low = mid + 1;
-		}
-	}
+        if (matrix[mid][0] == target) {
+            return true;
+        }
+        else if (matrix[mid][0] > target) {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
 
-	int row = high;
-	if (row < 0 || row >= m) {
-		return false;
-	}
+    int row = high;
+    if (row < 0 || row >= m) {
+        return false;
+    }
 
-	low = 0;
-	high = n - 1;
+    low = 0;
+    high = n - 1;
 
-	while (low <= high) {
-		mid = low + (high - low) / 2;
+    while (low <= high) {
+        mid = low + (high - low) / 2;
 
-		if (matrix[row][mid] == target) {
-			return true;
-		}
-		else if (matrix[row][mid] > target) {
-			high = mid - 1;
-		}
-		else {
-			low = mid + 1;
-		}
-	}
+        if (matrix[row][mid] == target) {
+            return true;
+        }
+        else if (matrix[row][mid] > target) {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 bool
 search_matrix_v2(int **matrix, int matrix_row_size, int matrix_col_size, int target) {
 
-	int m = matrix_row_size, n = matrix_col_size;
+    int m = matrix_row_size, n = matrix_col_size;
 
-	if (m < 1 || n < 1) {
-		return false;
-	}
+    if (m < 1 || n < 1) {
+        return false;
+    }
 
-	int low, high, mid;
+    int low, high, mid;
 
-	low = 0;
-	high = m - 1;
+    low = 0;
+    high = m - 1;
 
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
 
-		if (matrix[mid][0] == target) {
-			return true;
-		}
-		else if (matrix[mid][0] > target) {
-			high = mid;
-		}
-		else {
-			low = mid;
-		}
-	}
+        if (matrix[mid][0] == target) {
+            return true;
+        }
+        else if (matrix[mid][0] > target) {
+            high = mid;
+        }
+        else {
+            low = mid;
+        }
+    }
 
-	int row;
-	if (matrix[low][0] > target) {
-		row = low - 1;
-	}
-	else if (matrix[low][0] == target) {
-		return true;
-	}
-	else if (matrix[high][0] > target) {
-		row = low;
-	}
-	else if (matrix[high][0] == target) {
-		return true;
-	}
-	else {
-		row = high;
-	}
-	
+    int row;
+    if (matrix[low][0] > target) {
+        row = low - 1;
+    }
+    else if (matrix[low][0] == target) {
+        return true;
+    }
+    else if (matrix[high][0] > target) {
+        row = low;
+    }
+    else if (matrix[high][0] == target) {
+        return true;
+    }
+    else {
+        row = high;
+    }
+    
 
-	if (row < 0 || row >= m) {
-		return false;
-	}
+    if (row < 0 || row >= m) {
+        return false;
+    }
 
-	low = 0;
-	high = n - 1;
+    low = 0;
+    high = n - 1;
 
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
 
-		if (matrix[row][mid] == target) {
-			return true;
-		}
-		else if (matrix[row][mid] > target) {
-			high = mid;
-		}
-		else {
-			low = mid;
-		}
-	}
-	
-	if (matrix[row][low] == target) {
-		return true;
-	}
-	if (matrix[row][high] == target) {
-		return true;
-	}
+        if (matrix[row][mid] == target) {
+            return true;
+        }
+        else if (matrix[row][mid] > target) {
+            high = mid;
+        }
+        else {
+            low = mid;
+        }
+    }
+    
+    if (matrix[row][low] == target) {
+        return true;
+    }
+    if (matrix[row][high] == target) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
 /*****************************************************
  *
@@ -475,28 +475,28 @@ search_matrix_v2(int **matrix, int matrix_row_size, int matrix_col_size, int tar
 *****************************************************/
 bool 
 search_matrix_2(int **matrix, int matrix_row_size, int matrix_col_size, int target) {
-	
-	int m = matrix_row_size, n = matrix_col_size;
+    
+    int m = matrix_row_size, n = matrix_col_size;
 
-	if (m < 1 || n < 1) {
-		return false;
-	}
+    if (m < 1 || n < 1) {
+        return false;
+    }
 
-	int i = m - 1, j = 0;
+    int i = m - 1, j = 0;
 
-	while (i >= 0 && j < n) {
-		if (matrix[i][j] == target) {
-			return true;
-		}
-		else if (matrix[i][j] > target) {
-			--i;
-		}
-		else {
-			++j;
-		}
-	}
+    while (i >= 0 && j < n) {
+        if (matrix[i][j] == target) {
+            return true;
+        }
+        else if (matrix[i][j] > target) {
+            --i;
+        }
+        else {
+            ++j;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 /*****************************************************
@@ -518,24 +518,24 @@ search_matrix_2(int **matrix, int matrix_row_size, int matrix_col_size, int targ
  *
 *****************************************************/
 int find_peak_element(int *nums, int nums_size) {
-	if (nums_size < 1) {
-		return -1;
-	}
+    if (nums_size < 1) {
+        return -1;
+    }
 
-	int low = 0, high = nums_size - 1, mid1, mid2;
+    int low = 0, high = nums_size - 1, mid1, mid2;
 
-	while (low < high) {
-		mid1 = low + (high - low) / 2;
-		mid2 = mid1 + 1;
-		if (nums[mid1] < nums[mid2]) {
-			low = mid2;
-		}
-		else {
-			high = mid1;
-		}
-	}
+    while (low < high) {
+        mid1 = low + (high - low) / 2;
+        mid2 = mid1 + 1;
+        if (nums[mid1] < nums[mid2]) {
+            low = mid2;
+        }
+        else {
+            high = mid1;
+        }
+    }
 
-	return low;
+    return low;
 }
 
 /*****************************************************
@@ -553,41 +553,41 @@ int find_peak_element(int *nums, int nums_size) {
 *****************************************************/
 int 
 find_min(int *nums, int nums_size) {
-	
-	int low = 0, high = nums_size - 1, mid;
+    
+    int low = 0, high = nums_size - 1, mid;
 
-	while (low < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] < nums[high]) {
-			high = mid;
-		}
-		else {
-			low = mid + 1;
-		}
-	}
+    while (low < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] < nums[high]) {
+            high = mid;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
 
-	return nums[low];
+    return nums[low];
 }
 
 int 
 find_min_v2(int *nums, int nums_size) {
-	
-	int low = 0, high = nums_size - 1, mid;
+    
+    int low = 0, high = nums_size - 1, mid;
 
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] < nums[high]) {
-			high = mid;
-		}
-		else {
-			low = mid;
-		}
-	}
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] < nums[high]) {
+            high = mid;
+        }
+        else {
+            low = mid;
+        }
+    }
 
-	if (nums[low] < nums[high]) {
-		return nums[low];
-	}
-	return nums[high];
+    if (nums[low] < nums[high]) {
+        return nums[low];
+    }
+    return nums[high];
 }
 
 /*****************************************************
@@ -605,47 +605,47 @@ find_min_v2(int *nums, int nums_size) {
 *****************************************************/
 int 
 find_min_2(int *nums, int nums_size) {
-	
-	int low = 0, high = nums_size - 1, mid;
+    
+    int low = 0, high = nums_size - 1, mid;
 
-	while (low < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] < nums[high]) {
-			high = mid;
-		}
-		else if (nums[mid] > nums[high]) {
-			low = mid + 1;
-		}
-		else {
-			--high;
-		}
-	}
+    while (low < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] < nums[high]) {
+            high = mid;
+        }
+        else if (nums[mid] > nums[high]) {
+            low = mid + 1;
+        }
+        else {
+            --high;
+        }
+    }
 
-	return nums[low];
+    return nums[low];
 }
 
 int 
 find_min_2_v2(int *nums, int nums_size) {
-	
-	int low = 0, high = nums_size - 1, mid;
+    
+    int low = 0, high = nums_size - 1, mid;
 
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		if (nums[mid] < nums[high]) {
-			high = mid;
-		}
-		else if (nums[mid] > nums[high]) {
-			low = mid;
-		}
-		else {
-			--high;
-		}
-	}
-	
-	if (nums[low] < nums[high]) {
-		return nums[low];
-	}
-	return nums[high];
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        if (nums[mid] < nums[high]) {
+            high = mid;
+        }
+        else if (nums[mid] > nums[high]) {
+            low = mid;
+        }
+        else {
+            --high;
+        }
+    }
+    
+    if (nums[low] < nums[high]) {
+        return nums[low];
+    }
+    return nums[high];
 }
 
 /*****************************************************
@@ -664,40 +664,40 @@ find_min_2_v2(int *nums, int nums_size) {
 int 
 search_rotated_sorted(int *nums, int nums_size, int target) {
 
-	int low = 0, high = nums_size - 1, mid;
+    int low = 0, high = nums_size - 1, mid;
 
-	/* find the index of min */
-	while (low < high) {
-		mid = low + (high - low) / 2;
+    /* find the index of min */
+    while (low < high) {
+        mid = low + (high - low) / 2;
 
-		if (nums[mid] >= nums[high]) {
-			low = mid + 1;
-		}
-		else {
-			high = mid;
-		}
-	}
+        if (nums[mid] >= nums[high]) {
+            low = mid + 1;
+        }
+        else {
+            high = mid;
+        }
+    }
 
-	int base = low, index;
+    int base = low, index;
 
-	low = 0;
-	high = nums_size - 1;
-	while (low <= high) {
-		mid = low + (high - low) / 2;
-		index = (base + mid) % nums_size;
+    low = 0;
+    high = nums_size - 1;
+    while (low <= high) {
+        mid = low + (high - low) / 2;
+        index = (base + mid) % nums_size;
 
-		if (nums[index] == target) {
-			return index;
-		}
-		else if (nums[index] > target) {
-			high = mid - 1;
-		}
-		else {
-			low = mid + 1;
-		}
-	}
+        if (nums[index] == target) {
+            return index;
+        }
+        else if (nums[index] > target) {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
 
-	return -1;
+    return -1;
 }
 
 /*****************************************************
@@ -715,79 +715,79 @@ search_rotated_sorted(int *nums, int nums_size, int target) {
 bool 
 search_rotated_sorted_2(int *nums, int nums_size, int target) {
 
-	int low = 0, high = nums_size - 1, mid;
+    int low = 0, high = nums_size - 1, mid;
 
-	while (low < high) {
-		mid = low + (high - low) / 2;
+    while (low < high) {
+        mid = low + (high - low) / 2;
 
-		if (nums[mid] == target) {
-			return true;
-		}
-		
-		if (nums[mid] > nums[high]) {
-			if (nums[low] <= target && nums[mid] > target) {
-				high = mid;
-			}
-			else {
-				low = mid + 1;
-			}
-		}
-		else if (nums[mid] < nums[high]) {
-			if (nums[mid] < target && nums[high] >= target) {
-				low = mid + 1;
-			}
-			else {
-				high = mid;
-			}
-		}
-		else {
-			--high;
-		}
-	}
+        if (nums[mid] == target) {
+            return true;
+        }
+        
+        if (nums[mid] > nums[high]) {
+            if (nums[low] <= target && nums[mid] > target) {
+                high = mid;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+        else if (nums[mid] < nums[high]) {
+            if (nums[mid] < target && nums[high] >= target) {
+                low = mid + 1;
+            }
+            else {
+                high = mid;
+            }
+        }
+        else {
+            --high;
+        }
+    }
 
-	return nums[low] == target ? true : false;
+    return nums[low] == target ? true : false;
 }
 
 bool 
 search_rotated_sorted_2_v2(int *nums, int nums_size, int target) {
 
-	int low = 0, high = nums_size - 1, mid;
+    int low = 0, high = nums_size - 1, mid;
 
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
 
-		if (nums[mid] == target) {
-			return true;
-		}
-		
-		if (nums[mid] > nums[high]) {
-			if (nums[low] <= target && nums[mid] > target) {
-				high = mid;
-			}
-			else {
-				low = mid;
-			}
-		}
-		else if (nums[mid] < nums[high]) {
-			if (nums[mid] < target && nums[high] >= target) {
-				low = mid;
-			}
-			else {
-				high = mid;
-			}
-		}
-		else {
-			--high;
-		}
-	}
+        if (nums[mid] == target) {
+            return true;
+        }
+        
+        if (nums[mid] > nums[high]) {
+            if (nums[low] <= target && nums[mid] > target) {
+                high = mid;
+            }
+            else {
+                low = mid;
+            }
+        }
+        else if (nums[mid] < nums[high]) {
+            if (nums[mid] < target && nums[high] >= target) {
+                low = mid;
+            }
+            else {
+                high = mid;
+            }
+        }
+        else {
+            --high;
+        }
+    }
 
-	if (nums[low] == target) {
-		return true;
-	}
-	if (nums[high] == target) {
-		return true;
-	}
-	return false;
+    if (nums[low] == target) {
+        return true;
+    }
+    if (nums[high] == target) {
+        return true;
+    }
+    return false;
 }
 
 /*****************************************************
@@ -820,35 +820,35 @@ search_rotated_sorted_2_v2(int *nums, int nums_size, int target) {
 int 
 h_index(int *citations, int citations_size) {
 
-	int len = citations_size, i;
+    int len = citations_size, i;
 
-	if (len < 1) {
-		return 0;
-	}
+    if (len < 1) {
+        return 0;
+    }
 
-	int *array = (int *)malloc(sizeof(int) * (len + 1));
-	for (i = 0; i <= len; ++i) {
-		array[i] = 0;
-	}
+    int *array = (int *)malloc(sizeof(int) * (len + 1));
+    for (i = 0; i <= len; ++i) {
+        array[i] = 0;
+    }
 
-	for (i = 0; i < len; ++i) {
-		if (citations[i] >= len) {
-			array[len] += 1;
-		}
-		else {
-			array[citations[i]] += 1;
-		}
-	}
+    for (i = 0; i < len; ++i) {
+        if (citations[i] >= len) {
+            array[len] += 1;
+        }
+        else {
+            array[citations[i]] += 1;
+        }
+    }
 
-	int tmp = 0;
-	for (i = len; i >= 0; --i) {
-		tmp += array[i];
-		if (tmp >= i) {
-			return i;
-		}
-	}
+    int tmp = 0;
+    for (i = len; i >= 0; --i) {
+        tmp += array[i];
+        if (tmp >= i) {
+            return i;
+        }
+    }
 
-	return 0;
+    return 0;
 }
 
 /*****************************************************
@@ -865,58 +865,58 @@ h_index(int *citations, int citations_size) {
 int 
 h_index_2(int *citations, int citations_size) {
 
-	int low = 0, high = citations_size - 1, mid, count;
+    int low = 0, high = citations_size - 1, mid, count;
 
-	while (low <= high) {
-		mid = low + (high - low) / 2;
-		count = citations_size - mid;
-		
-		if (citations[mid] == count) {
-			return count;
-		}
-		else if (citations[mid] < count) {
-			low = mid + 1;
-		}
-		else {
-			high = mid - 1;
-		}
-	}
+    while (low <= high) {
+        mid = low + (high - low) / 2;
+        count = citations_size - mid;
+        
+        if (citations[mid] == count) {
+            return count;
+        }
+        else if (citations[mid] < count) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
 
-	return citations_size - low;
+    return citations_size - low;
 }
 
 
 int 
 h_index_2_v2(int *citations, int citations_size) {
 
-	int low = 0, high = citations_size - 1, mid, count;
+    int low = 0, high = citations_size - 1, mid, count;
 
-	while (low + 1 < high) {
-		mid = low + (high - low) / 2;
-		count = citations_size - mid;
-		
-		if (citations[mid] == count) {
-			return count;
-		}
-		if (citations[mid] > count) {
-			high = mid;
-		}
-		else {
-			low = mid;
-		}
-	}
+    while (low + 1 < high) {
+        mid = low + (high - low) / 2;
+        count = citations_size - mid;
+        
+        if (citations[mid] == count) {
+            return count;
+        }
+        if (citations[mid] > count) {
+            high = mid;
+        }
+        else {
+            low = mid;
+        }
+    }
 
-	count = citations_size - low;
-	if (citations[low] >= count) {
-		return count;
-	}
+    count = citations_size - low;
+    if (citations[low] >= count) {
+        return count;
+    }
 
-	count = citations_size - high;
-	if (citations[high] >= count) {
-		return count;
-	}
+    count = citations_size - high;
+    if (citations[high] >= count) {
+        return count;
+    }
 
-	return 0;
+    return 0;
 }
 
 /*****************************************************
@@ -932,59 +932,59 @@ h_index_2_v2(int *citations, int citations_size) {
 int
 find_median_sorted_arrays_helper(int *a, int a_len, int a_start, int *b, int b_len, int b_start, int k)
 {
-	if (a_start >= a_len) {
-		return b[b_start + k - 1];
-	}
-	if (b_start >= b_len) {
-		return a[a_start + k - 1];
-	}
+    if (a_start >= a_len) {
+        return b[b_start + k - 1];
+    }
+    if (b_start >= b_len) {
+        return a[a_start + k - 1];
+    }
 
-	if (k == 1) {
-		return algo_min(a[a_start], b[b_start]);
-	}
+    if (k == 1) {
+        return algo_min(a[a_start], b[b_start]);
+    }
 
-	int a_key, b_key;
+    int a_key, b_key;
 
-	a_key = a_start + k / 2 - 1 < a_len ? a[a_start + k / 2 - 1] : INT_MAX;
-	b_key = b_start + k / 2 - 1 < b_len ? a[b_start + k / 2 - 1] : INT_MAX;
+    a_key = a_start + k / 2 - 1 < a_len ? a[a_start + k / 2 - 1] : INT_MAX;
+    b_key = b_start + k / 2 - 1 < b_len ? a[b_start + k / 2 - 1] : INT_MAX;
 
-	if (a_key < b_key) {
-		return find_median_sorted_arrays_helper(
-					a, a_len, a_start + k / 2,
-					b, b_len, b_start,
-					k - k / 2);
-	}
-	else {
-		return find_median_sorted_arrays_helper(
-					a, a_len, a_start,
-					b, b_len, b_start + k / 2,
-					k - k / 2);
-	}
+    if (a_key < b_key) {
+        return find_median_sorted_arrays_helper(
+                    a, a_len, a_start + k / 2,
+                    b, b_len, b_start,
+                    k - k / 2);
+    }
+    else {
+        return find_median_sorted_arrays_helper(
+                    a, a_len, a_start,
+                    b, b_len, b_start + k / 2,
+                    k - k / 2);
+    }
 }
 
 double 
 find_median_sorted_arrays(int *nums1, int nums1_size, int *nums2, int nums2_size)
 {
-	int len;
+    int len;
 
-	len = nums1_size + nums2_size;
+    len = nums1_size + nums2_size;
 
-	if (len % 2 == 1) {
-		return find_median_sorted_arrays_helper(
-					nums1, nums1_size, 0, 
-					nums2, nums2_size, 0, 
-					len / 2 + 1);
-	}
-	else {
-		return (find_median_sorted_arrays_helper(
-					nums1, nums1_size, 0, 
-					nums2, nums2_size, 0, 
-					len / 2)
-				+ find_median_sorted_arrays_helper(
-					nums1, nums1_size, 0, 
-					nums2, nums2_size, 0, 
-					len / 2 + 1)
-				) / 2.0;
-	}
+    if (len % 2 == 1) {
+        return find_median_sorted_arrays_helper(
+                    nums1, nums1_size, 0, 
+                    nums2, nums2_size, 0, 
+                    len / 2 + 1);
+    }
+    else {
+        return (find_median_sorted_arrays_helper(
+                    nums1, nums1_size, 0, 
+                    nums2, nums2_size, 0, 
+                    len / 2)
+                + find_median_sorted_arrays_helper(
+                    nums1, nums1_size, 0, 
+                    nums2, nums2_size, 0, 
+                    len / 2 + 1)
+                ) / 2.0;
+    }
 }
 

@@ -6,17 +6,17 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FizzBuzz", "FizzBuzz\FizzBuzz.vcxproj", "{FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
-		Release|Win32 = Release|Win32
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Debug|Win32.ActiveCfg = Debug|Win32
-		{FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Debug|Win32.Build.0 = Debug|Win32
-		{FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Release|Win32.ActiveCfg = Release|Win32
-		{FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Release|Win32.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Win32 = Debug|Win32
+        Release|Win32 = Release|Win32
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Debug|Win32.ActiveCfg = Debug|Win32
+        {FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Debug|Win32.Build.0 = Debug|Win32
+        {FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Release|Win32.ActiveCfg = Release|Win32
+        {FCAF2AEE-5442-4F89-B6D3-A2CB723D4FA1}.Release|Win32.Build.0 = Release|Win32
+    EndGlobalSection
+    GlobalSection(SolutionProperties) = preSolution
+        HideSolutionNode = FALSE
+    EndGlobalSection
 EndGlobal

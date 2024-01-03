@@ -36,7 +36,7 @@ public class ClinicDomainProducer {
     
     @Produces @ClinicDomain
     public EntityManager clinicDomainProducer() {
-    	return em;
+        return em;
     }
     
     public void clinicDomainDispose(@Disposes EntityManager em) {

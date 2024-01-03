@@ -58,13 +58,13 @@ public class PatientResource {
     @Produces(MediaType.APPLICATION_XML)
     public PatientRepresentation getPatient(@PathParam("id") String id) {
        try {
-    	   long key = Long.parseLong(id);
-    	   PatientDTO patientDTO = patientService.getPatientByDbId(key);
-    	   PatientRepresentation patientRep = new PatientRepresentation(patientDTO, context);
-    	   return patientRep;
+           long key = Long.parseLong(id);
+           PatientDTO patientDTO = patientService.getPatientByDbId(key);
+           PatientRepresentation patientRep = new PatientRepresentation(patientDTO, context);
+           return patientRep;
        }
        catch(PatientServiceException ex) {
-    	   throw new WebApplicationException(Response.Status.NOT_FOUND);
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
        }
     }
     
@@ -73,16 +73,16 @@ public class PatientResource {
     @Produces(MediaType.APPLICATION_XML)
     public PatientRepresentation getPatientByPatientId(@QueryParam("id") String patientId) {
        try {
-    	   long pid = Long.parseLong(patientId);
-    	   PatientDTO patientDTO = patientService.getPatientByPatientId(pid);
-    	   PatientRepresentation patientRep = new PatientRepresentation(patientDTO, context);
-    	   return patientRep;
+           long pid = Long.parseLong(patientId);
+           PatientDTO patientDTO = patientService.getPatientByPatientId(pid);
+           PatientRepresentation patientRep = new PatientRepresentation(patientDTO, context);
+           return patientRep;
        }
        catch(PatientNotFoundException ex) {
-    	   throw new WebApplicationException(Response.Status.NOT_FOUND);
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
        }
        catch(PatientServiceException ex) {
-    	   throw new WebApplicationException(ex.getMessage());
+           throw new WebApplicationException(ex.getMessage());
        }
     }
     
@@ -90,27 +90,27 @@ public class PatientResource {
     @Produces(MediaType.APPLICATION_XML)
     public PatientRepresentation[] getPatientByNameDob(@QueryParam("name") String name, @QueryParam("dob") String dob) {
        Date birthDate = DatatypeConverter.parseDate(dob).getTime();
-	   PatientDTO[] patientDTOs = patientService.getPatientByNameDob(name, birthDate);
-	   PatientRepresentation[] patientReps = new PatientRepresentation[patientDTOs.length];
-	   for(int i = 0; i < patientDTOs.length; ++i) {
-		   patientReps[i] = new PatientRepresentation(patientDTOs[i], context);
-	   }
-	   return patientReps;
+       PatientDTO[] patientDTOs = patientService.getPatientByNameDob(name, birthDate);
+       PatientRepresentation[] patientReps = new PatientRepresentation[patientDTOs.length];
+       for(int i = 0; i < patientDTOs.length; ++i) {
+           patientReps[i] = new PatientRepresentation(patientDTOs[i], context);
+       }
+       return patientReps;
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML)
     public Response addPatient(PatientRepresentation patientRep) {
-    	
-    	try {
-    		long id = patientService.createPatient(patientRep.getName(), patientRep.getDob(), 49, patientRep.getPatientId());
-    		UriBuilder ub = context.getAbsolutePathBuilder().path("{id}");
-    		URI url = ub.build(Long.toString(id));
-    		return Response.created(url).build();
-    	}
-    	catch (PatientServiceException ex) {
-    		throw new WebApplicationException(ex.getMessage());
-    	}
+        
+        try {
+            long id = patientService.createPatient(patientRep.getName(), patientRep.getDob(), 49, patientRep.getPatientId());
+            UriBuilder ub = context.getAbsolutePathBuilder().path("{id}");
+            URI url = ub.build(Long.toString(id));
+            return Response.created(url).build();
+        }
+        catch (PatientServiceException ex) {
+            throw new WebApplicationException(ex.getMessage());
+        }
     }
 
 }

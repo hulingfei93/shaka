@@ -5,11 +5,11 @@
 #include <sse_server.h>
 
 typedef struct {
-	sse_uint_t		doc_count;
-	sse_tstree_t	*tstree_term_dict;
-	sse_hash_t		*stopwords_dict;
-	sse_pool_t		*pool;
-	sse_log_t		*log;
+    sse_uint_t      doc_count;
+    sse_tstree_t    *tstree_term_dict;
+    sse_hash_t      *stopwords_dict;
+    sse_pool_t      *pool;
+    sse_log_t       *log;
 } sse_server_t;
 
 sse_server_t * sse_server_create(sse_pool_t *pool, sse_log_t *log);

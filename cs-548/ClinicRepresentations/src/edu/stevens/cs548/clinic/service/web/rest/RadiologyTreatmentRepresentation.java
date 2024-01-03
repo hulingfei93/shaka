@@ -6,7 +6,7 @@ import edu.stevens.cs548.clinic.service.web.rest.data.RadiologyTreatmentType;
 
 public class RadiologyTreatmentRepresentation extends RadiologyTreatmentType {
 
-	public RadiologyTreatmentRepresentation() {
-		super();
-	}
+    public RadiologyTreatmentRepresentation() {
+        super();
+    }
 }

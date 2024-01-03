@@ -6,32 +6,32 @@ import javax.persistence.Persistence;
 
 public class ClinicGateway implements IClinicGateway {
 
-	private EntityManagerFactory emf;
-	
-	public ClinicGateway() {
-		emf = Persistence.createEntityManagerFactory("ClinicDomain");
-	}
-	
-	@Override
-	public IPatientFactory getPatientFactory() {
-		return new PatientFactory();
-	}
+    private EntityManagerFactory emf;
+    
+    public ClinicGateway() {
+        emf = Persistence.createEntityManagerFactory("ClinicDomain");
+    }
+    
+    @Override
+    public IPatientFactory getPatientFactory() {
+        return new PatientFactory();
+    }
 
-	@Override
-	public IPatientDAO getPatientDAO() {
-		EntityManager em = emf.createEntityManager();
-		return new PatientDAO(em);
-	}
-	
-	@Override
-	public IProviderFactory getProviderFactory() {
-		return new ProviderFactory();
-	}
-	
-	@Override
-	public IProviderDAO getProviderDAO() {
-		EntityManager em = emf.createEntityManager();
-		return new ProviderDAO(em);
-	}
+    @Override
+    public IPatientDAO getPatientDAO() {
+        EntityManager em = emf.createEntityManager();
+        return new PatientDAO(em);
+    }
+    
+    @Override
+    public IProviderFactory getProviderFactory() {
+        return new ProviderFactory();
+    }
+    
+    @Override
+    public IProviderDAO getProviderDAO() {
+        EntityManager em = emf.createEntityManager();
+        return new ProviderDAO(em);
+    }
 
 }

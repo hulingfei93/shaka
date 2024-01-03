@@ -4,12 +4,12 @@
 #include <sse_core.h>
 
 typedef struct {
-	size_t				elem_size;		/* element size */
-	sse_uint_t			size;			/* current count of element */
-	sse_uint_t			capacity;		/* max capacity of storing elements */
-	void				*data;			/* data storage */
-	sse_pool_t			*pool;
-	sse_log_t			*log;
+    size_t              elem_size;      /* element size */
+    sse_uint_t          size;           /* current count of element */
+    sse_uint_t          capacity;       /* max capacity of storing elements */
+    void                *data;          /* data storage */
+    sse_pool_t          *pool;
+    sse_log_t           *log;
 } sse_vector_t;
 
 sse_vector_t *sse_vector_create(size_t elem_size, sse_uint_t capacity, sse_pool_t *pool, sse_log_t *log);

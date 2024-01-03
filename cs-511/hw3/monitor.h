@@ -14,8 +14,8 @@
 #include <string.h>
 #include <unistd.h>
 
-#define true	1
-#define false	0
+#define true    1
+#define false   0
 
 #define Q_NORTH 'n'
 #define Q_SOUTH 's'

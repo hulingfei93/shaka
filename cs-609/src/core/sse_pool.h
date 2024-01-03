@@ -3,27 +3,27 @@
 
 #include <sse_core.h>
 
-typedef struct sse_pool_small_block_s	sse_pool_small_block_t;
-typedef struct sse_pool_large_block_s	sse_pool_large_block_t;
+typedef struct sse_pool_small_block_s   sse_pool_small_block_t;
+typedef struct sse_pool_large_block_s   sse_pool_large_block_t;
 
 struct sse_pool_small_block_s {
-	char						*last;
-	char						*end;
-	sse_pool_small_block_t		*next;
+    char                        *last;
+    char                        *end;
+    sse_pool_small_block_t      *next;
 };
 
 struct sse_pool_large_block_s {
-	sse_pool_large_block_t		*next;
-	void						*data;
+    sse_pool_large_block_t      *next;
+    void                        *data;
 };
 
 typedef struct {
-	sse_pool_small_block_t		*small;
-	size_t						small_block_size;
-	sse_uint_t					small_block_count;
-	sse_pool_small_block_t		*current;
-	sse_pool_large_block_t		*large;
-	sse_log_t					*log;
+    sse_pool_small_block_t      *small;
+    size_t                      small_block_size;
+    sse_uint_t                  small_block_count;
+    sse_pool_small_block_t      *current;
+    sse_pool_large_block_t      *large;
+    sse_log_t                   *log;
 } sse_pool_t;
 
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lib:drugTreatments xmlns:lib="http://www.lhu4.com/cs-548/xquery/clinic/lib">
-	<lib:drugTreatment>
-		<lib:drugName>chemotherapy drug</lib:drugName>
-		<lib:diagnosis>throat cancer</lib:diagnosis>
-		<lib:dosage>2.8</lib:dosage>
-	</lib:drugTreatment>
-	<lib:drugTreatment>
-		<lib:drugName>cold medication</lib:drugName>
-		<lib:diagnosis>cold</lib:diagnosis>
-		<lib:dosage>15.0</lib:dosage>
-	</lib:drugTreatment>
+    <lib:drugTreatment>
+        <lib:drugName>chemotherapy drug</lib:drugName>
+        <lib:diagnosis>throat cancer</lib:diagnosis>
+        <lib:dosage>2.8</lib:dosage>
+    </lib:drugTreatment>
+    <lib:drugTreatment>
+        <lib:drugName>cold medication</lib:drugName>
+        <lib:diagnosis>cold</lib:diagnosis>
+        <lib:dosage>15.0</lib:dosage>
+    </lib:drugTreatment>
 </lib:drugTreatments>

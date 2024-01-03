@@ -8,17 +8,17 @@ using namespace std;
 
 void algebraic_expression_test()
 {
-	try
-	{
-		algebraic_expression expression;
-		expression.execute("infile.dat");
-		expression.execute("infile1.dat");
-		expression.execute("infile2.dat");
-	}
-	catch (exception ex)
-	{
-		cout << ex.what() << endl;
-	}
+    try
+    {
+        algebraic_expression expression;
+        expression.execute("infile.dat");
+        expression.execute("infile1.dat");
+        expression.execute("infile2.dat");
+    }
+    catch (exception ex)
+    {
+        cout << ex.what() << endl;
+    }
 }
 
 #endif

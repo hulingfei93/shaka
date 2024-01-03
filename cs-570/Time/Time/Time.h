@@ -9,25 +9,25 @@ using namespace std;
 class Time
 {
 public:
-	Time(int hours = 0,
-		int minites = 0,
-		double seconds = 0.0);
-	Time(double);
-	
-	~Time();
+    Time(int hours = 0,
+        int minites = 0,
+        double seconds = 0.0);
+    Time(double);
+    
+    ~Time();
 
-	int get_hours() const;
-	int get_minutes() const;
-	double get_seconds() const;
-	double get_total_seconds() const;
+    int get_hours() const;
+    int get_minutes() const;
+    double get_seconds() const;
+    double get_total_seconds() const;
 
-	friend ostream& operator<<(ostream&, const Time&);
+    friend ostream& operator<<(ostream&, const Time&);
 
 private:
-	double total_seconds;
-	int hours_of_day;
-	int minites_of_day;
-	double seconds_of_day;
+    double total_seconds;
+    int hours_of_day;
+    int minites_of_day;
+    double seconds_of_day;
 };
 
 #endif

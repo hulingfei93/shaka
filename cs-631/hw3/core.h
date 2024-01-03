@@ -22,14 +22,14 @@
 #include <string.h>
 #include <unistd.h>
 
-#define false	0
-#define true	1
+#define false   0
+#define true    1
 
 #define CONN_REQUESTS_QUEUE_LEN 10
 #define BUF_SIZE 1024
 
 
-typedef int		fd_t;
+typedef int     fd_t;
 
 typedef unsigned char bool;
 

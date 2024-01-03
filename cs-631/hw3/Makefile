@@ -3,7 +3,7 @@ CFLAGS = -pipe -O0 -W -Wall -Wpointer-arith -Wno-unused-parameter -Wno-unused-fu
 LINK = $(CC)
 
 DEPS = core.h \
-	   net.h
+       net.h
 
 INCS = -I ./
 
@@ -14,16 +14,16 @@ default: build
 build: sws
 
 clean:
-	rm -rf *.o
-	rm -rf sws
+    rm -rf *.o
+    rm -rf sws
 
 
 sws: sws.o $(OBJS)
-	$(LINK) -o sws sws.o $(OBJS) -lbsd -lpthread
+    $(LINK) -o sws sws.o $(OBJS) -lbsd -lpthread
 
 sws.o: main.c $(DEPS)
-	$(CC) -c $(CFLAGS) $(INCS) -o sws.o main.c
+    $(CC) -c $(CFLAGS) $(INCS) -o sws.o main.c
 
 net.o: net.c $(DEPS)
-	$(CC) -c $(CFLAGS) $(INCS) -o net.o net.c
+    $(CC) -c $(CFLAGS) $(INCS) -o net.o net.c
 

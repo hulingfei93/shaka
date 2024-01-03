@@ -5,25 +5,25 @@
 #include <sse_server.h>
 
 typedef struct {
-	char			MODE;
-	const char		*LOG_DIR;
-	const char		*LOG_NAME;
-	sse_uint_t		LOG_LEVEL;
-	
-	const char		*INDEX_DIR;
-	const char		*STOPWORDS_FILE;
+    char            MODE;
+    const char      *LOG_DIR;
+    const char      *LOG_NAME;
+    sse_uint_t      LOG_LEVEL;
+    
+    const char      *INDEX_DIR;
+    const char      *STOPWORDS_FILE;
 
-	const char		*INDEX_TERM_DICT_FILE_EXTENSION;
-	const char		*INDEX_TERM_DICT_INDEX_FILE_EXTENSION;
+    const char      *INDEX_TERM_DICT_FILE_EXTENSION;
+    const char      *INDEX_TERM_DICT_INDEX_FILE_EXTENSION;
 
-	const char		*INDEX_DOCID_FREQ_FILE_EXTENSION;
-	
-	const char		*INDEX_OFFSET_FILE_EXTENSION;
+    const char      *INDEX_DOCID_FREQ_FILE_EXTENSION;
+    
+    const char      *INDEX_OFFSET_FILE_EXTENSION;
 
-	const char		*INDEX_DOC_DATA_INDEX_FILE_EXTENSION;
-	const char		*INDEX_DOC_DATA_FILE_EXTENSION;
+    const char      *INDEX_DOC_DATA_INDEX_FILE_EXTENSION;
+    const char      *INDEX_DOC_DATA_FILE_EXTENSION;
 
-	const char		*INDEX_NAME;
+    const char      *INDEX_NAME;
 
 } sse_server_config_t;
 

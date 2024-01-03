@@ -4,9 +4,9 @@ using namespace std;
 
 int main(int argc, char ** argv)
 {
-	reverse_polish_notation rpn;
-	rpn.start();
+    reverse_polish_notation rpn;
+    rpn.start();
 
-	return 0;
+    return 0;
 }
 

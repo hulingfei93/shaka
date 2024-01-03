@@ -6,7 +6,7 @@ import edu.stevens.cs548.clinic.service.web.rest.data.SurgeryTreatmentType;
 
 public class SurgeryTreatmentRepresentation extends SurgeryTreatmentType {
 
-	public SurgeryTreatmentRepresentation() {
-		super();
-	}
+    public SurgeryTreatmentRepresentation() {
+        super();
+    }
 }

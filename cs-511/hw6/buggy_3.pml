@@ -9,10 +9,10 @@ proctype incrementUpToN(byte N) {
     do
     :: i > N -> break
     :: else  ->
-				atomic {
-					temp = n;
-					n = temp + 1;
-				}
+                atomic {
+                    temp = n;
+                    n = temp + 1;
+                }
                 printf("process %d, i=%d: n changed from %d to %d\n", _pid, i, temp, n);
                 i = i + 1
     od

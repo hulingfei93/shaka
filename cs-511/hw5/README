@@ -1,6 +1,6 @@
 1. compile source code
-	erlc sensor.erl
-	erlc watcher.erl
-	
+    erlc sensor.erl
+    erlc watcher.erl
+    
 2. run
-	erl +P 131072 -noshell -s watcher start
+    erl +P 131072 -noshell -s watcher start

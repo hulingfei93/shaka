@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema targetNamespace="http://www.example.org/clinic/schemas/patient-dto"
-	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0"
-	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:tns="http://www.example.org/clinic/schemas/patient-dto">
-	
-	<annotation>
-		<appinfo>
-			<jaxb:globalBindings>
-				<jaxb:javaType
-					name="java.util.Date" 
-					xmlType="date" 
-					parseMethod="edu.stevens.cs548.clinic.service.dto.DateAdapter.parseDate"
-					printMethod="edu.stevens.cs548.clinic.service.dto.DateAdapter.printDate"
-				/>
-			</jaxb:globalBindings>
-		</appinfo>
-	</annotation>
-	
-	<element name="patientDTO">
- 		<complexType>
-			<sequence>
-	         <element name="id" type="long"/>
-	         <element name="patientId" type="long"/>
-	         <element name="name" type="string"/>
-	         <element name="dob" type="date"/>
-	         <element name="treatments" type="long" maxOccurs="unbounded" nillable="true"/>
-	      </sequence>
-		</complexType>
- 	</element>
- 	
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0"
+    elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:tns="http://www.example.org/clinic/schemas/patient-dto">
+    
+    <annotation>
+        <appinfo>
+            <jaxb:globalBindings>
+                <jaxb:javaType
+                    name="java.util.Date" 
+                    xmlType="date" 
+                    parseMethod="edu.stevens.cs548.clinic.service.dto.DateAdapter.parseDate"
+                    printMethod="edu.stevens.cs548.clinic.service.dto.DateAdapter.printDate"
+                />
+            </jaxb:globalBindings>
+        </appinfo>
+    </annotation>
+    
+    <element name="patientDTO">
+        <complexType>
+            <sequence>
+             <element name="id" type="long"/>
+             <element name="patientId" type="long"/>
+             <element name="name" type="string"/>
+             <element name="dob" type="date"/>
+             <element name="treatments" type="long" maxOccurs="unbounded" nillable="true"/>
+          </sequence>
+        </complexType>
+    </element>
+    
 </schema>

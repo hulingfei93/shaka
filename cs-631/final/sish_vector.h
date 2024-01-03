@@ -8,11 +8,11 @@
 #include <sish_core.h>
 
 typedef struct {
-	sish_size_t			elem_size;		/* element size */
-	sish_uint_t			size;			/* current count of element */
-	sish_uint_t			capacity;		/* max capacity of storing elements */
-	void				*data;			/* data storage */
-	sish_pool_t			*pool;
+    sish_size_t         elem_size;      /* element size */
+    sish_uint_t         size;           /* current count of element */
+    sish_uint_t         capacity;       /* max capacity of storing elements */
+    void                *data;          /* data storage */
+    sish_pool_t         *pool;
 } sish_vector_t;
 
 sish_vector_t *sish_vector_create(size_t elem_size, sish_uint_t capacity, sish_pool_t *pool);

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="ClinicDomain">
-		<description>Domain model for a clinical information system</description>
-		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<jta-data-source>jdbc/serfdb</jta-data-source>
-		<class>edu.stevens.cs548.clinic.domain.Patient</class>
-		<class>edu.stevens.cs548.clinic.domain.Treatment</class>
-		<class>edu.stevens.cs548.clinic.domain.SurgeryTreatment</class>
-		<class>edu.stevens.cs548.clinic.domain.RadiologyTreatment</class>
-		<class>edu.stevens.cs548.clinic.domain.RadDate</class>
-		<class>edu.stevens.cs548.clinic.domain.Provider</class>
-		<class>edu.stevens.cs548.clinic.domain.DrugTreatment</class>
-	</persistence-unit>
+    <persistence-unit name="ClinicDomain">
+        <description>Domain model for a clinical information system</description>
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>jdbc/serfdb</jta-data-source>
+        <class>edu.stevens.cs548.clinic.domain.Patient</class>
+        <class>edu.stevens.cs548.clinic.domain.Treatment</class>
+        <class>edu.stevens.cs548.clinic.domain.SurgeryTreatment</class>
+        <class>edu.stevens.cs548.clinic.domain.RadiologyTreatment</class>
+        <class>edu.stevens.cs548.clinic.domain.RadDate</class>
+        <class>edu.stevens.cs548.clinic.domain.Provider</class>
+        <class>edu.stevens.cs548.clinic.domain.DrugTreatment</class>
+    </persistence-unit>
 </persistence>

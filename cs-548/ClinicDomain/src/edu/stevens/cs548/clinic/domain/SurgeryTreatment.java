@@ -15,26 +15,26 @@ import javax.persistence.*;
 @DiscriminatorValue("S")
 public class SurgeryTreatment extends Treatment implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Temporal(TemporalType.DATE)
-	private Date date;
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
-	public Date getDate() {
-		return date;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	@Override
-	public void visit(ITreatmentVisitor visitor) {
-		visitor.visitSurgeryTreatment(this.getId(), this.getPatient().getId(), this.getProvider().getNPI(), this.getDiagnosis(), this.date);
-	}
+    @Override
+    public void visit(ITreatmentVisitor visitor) {
+        visitor.visitSurgeryTreatment(this.getId(), this.getPatient().getId(), this.getProvider().getNPI(), this.getDiagnosis(), this.date);
+    }
 
-	public SurgeryTreatment() {
-		super();
-		setTreatmentType("D");
-	}
+    public SurgeryTreatment() {
+        super();
+        setTreatmentType("D");
+    }
 }

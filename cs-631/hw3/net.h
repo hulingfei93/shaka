@@ -9,26 +9,26 @@
 #include <core.h>
 
 typedef struct {
-	bool					is_allow_cgi;
-	char					*cgi_root_dir;
-	bool					is_debug_mode;
-	bool					is_print_exit;
-	char					*addr;
-	bool					is_ipv4;
-	struct sockaddr_in		sa;
-	bool					is_ipv6;
-	struct sockaddr_in6		sa6;
-	bool					is_log;
-	char					*log_path;
-	char					*port;
-	char					*doc_root;
+    bool                    is_allow_cgi;
+    char                    *cgi_root_dir;
+    bool                    is_debug_mode;
+    bool                    is_print_exit;
+    char                    *addr;
+    bool                    is_ipv4;
+    struct sockaddr_in      sa;
+    bool                    is_ipv6;
+    struct sockaddr_in6     sa6;
+    bool                    is_log;
+    char                    *log_path;
+    char                    *port;
+    char                    *doc_root;
 } options_t;
 
 typedef struct {
-	fd_t					socket;
-	bool					is_ipv4;
-	struct sockaddr			*client;
-	char					buf[BUF_SIZE];
+    fd_t                    socket;
+    bool                    is_ipv4;
+    struct sockaddr         *client;
+    char                    buf[BUF_SIZE];
 } request_t;
 
 void err_exit(const char *fmt, ...);

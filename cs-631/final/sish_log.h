@@ -7,7 +7,7 @@
 
 #include <sish_core.h>
 
-extern sish_int_t	last_exit_code;
+extern sish_int_t   last_exit_code;
 
 void sish_log_err_exit(const char *fmt, ...);
 void sish_log_err(const char *fmt, ...);

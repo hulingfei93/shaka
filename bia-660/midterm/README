@@ -3,7 +3,7 @@
 2. change your current working directory to the root dir of scrapy project
 
 3. run the following command line to begin crawler
-	scrapy crawl bestbuy -o bestbuy.csv
-	
+    scrapy crawl bestbuy -o bestbuy.csv
+    
 4. run the following python script "csv_converter.py" to adjust the format of the "bestbuy.csv"
-	python csv_converter.py bestbuy.csv bestbuy_new.csv
+    python csv_converter.py bestbuy.csv bestbuy_new.csv

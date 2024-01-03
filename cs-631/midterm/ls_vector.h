@@ -9,11 +9,11 @@
 #include <ls_core.h>
 
 typedef struct {
-	size_t				elem_size;		/* element size */
-	ls_uint_t			size;			/* current count of element */
-	ls_uint_t			capacity;		/* max capacity of storing elements */
-	void				*data;			/* data storage */
-	ls_pool_t			*pool;
+    size_t              elem_size;      /* element size */
+    ls_uint_t           size;           /* current count of element */
+    ls_uint_t           capacity;       /* max capacity of storing elements */
+    void                *data;          /* data storage */
+    ls_pool_t           *pool;
 } ls_vector_t;
 
 ls_vector_t *ls_vector_create(size_t elem_size, ls_uint_t capacity, ls_pool_t *pool);

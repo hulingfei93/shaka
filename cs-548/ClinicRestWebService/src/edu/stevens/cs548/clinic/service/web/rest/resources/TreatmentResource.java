@@ -28,33 +28,33 @@ public class TreatmentResource {
 
     @Context
     private UriInfo context;
-	private ITreatmentDAO treatmentDAO;
-	
-	public TreatmentResource() {
+    private ITreatmentDAO treatmentDAO;
+    
+    public TreatmentResource() {
     }
-	
-	@PersistenceContext(unitName="ClinicDomain")
+    
+    @PersistenceContext(unitName="ClinicDomain")
     private EntityManager em;
-	
-	@PostConstruct
-	private void initialize() {
-		treatmentDAO = new TreatmentDAO(em);
-	}
-	
-	@GET
+    
+    @PostConstruct
+    private void initialize() {
+        treatmentDAO = new TreatmentDAO(em);
+    }
+    
+    @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_XML)
     public TreatmentRepresentation getTreatment(@PathParam("id") String tid) {
        try {
-    	   long id = Long.parseLong(tid);
-    	   Treatment treatment = treatmentDAO.getTreatmentByDbId(id);
-    	   Treatment_PDO_to_Representation visitor = new Treatment_PDO_to_Representation(context);
-    	   treatment.visit(visitor);
-    	   TreatmentRepresentation treatRep = visitor.getRep();
-    	   return treatRep;
+           long id = Long.parseLong(tid);
+           Treatment treatment = treatmentDAO.getTreatmentByDbId(id);
+           Treatment_PDO_to_Representation visitor = new Treatment_PDO_to_Representation(context);
+           treatment.visit(visitor);
+           TreatmentRepresentation treatRep = visitor.getRep();
+           return treatRep;
        }
        catch(TreatmentException ex) {
-    	   throw new WebApplicationException(Response.Status.NOT_FOUND);
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
        }
     }
 }

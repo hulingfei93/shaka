@@ -55,133 +55,133 @@ import edu.stevens.cs548.clinic.service.web.rest.data.SurgeryTreatmentType;
 @RequestScoped
 public class ProviderResource {
 
-	@Context
+    @Context
     private UriInfo context;
-	private IPatientDAO patientDAO;
-	private IProviderDAO providerDAO;
-	 
-	public ProviderResource() {
+    private IPatientDAO patientDAO;
+    private IProviderDAO providerDAO;
+     
+    public ProviderResource() {
     }
-	
-	@PersistenceContext(unitName="ClinicDomain")
+    
+    @PersistenceContext(unitName="ClinicDomain")
     private EntityManager em;
-	
-	@Resource private UserTransaction utx; 
-	
-	@PostConstruct
-	private void initialize() {
-		patientDAO = new PatientDAO(em);
-		providerDAO = new ProviderDAO(em);
-	}
-	
-	@EJB
+    
+    @Resource private UserTransaction utx; 
+    
+    @PostConstruct
+    private void initialize() {
+        patientDAO = new PatientDAO(em);
+        providerDAO = new ProviderDAO(em);
+    }
+    
+    @EJB
     private IProviderServiceRemote providerService;
-	
-	@POST
+    
+    @POST
     @Consumes(MediaType.APPLICATION_XML)
     public Response addProvider(ProviderRepresentation providerRep) {
-    	try {
-    		long id = providerService.createProvider(providerRep.getName(), providerRep.getNPI());
-    		UriBuilder ub = context.getAbsolutePathBuilder().path("byNPI").queryParam("id", Long.toString(id));
-    		URI url = ub.build();
-    		return Response.created(url).build();
-    	}
-    	catch (ProviderServiceException ex) {
-    		throw new WebApplicationException(ex.getMessage());
-    	}
+        try {
+            long id = providerService.createProvider(providerRep.getName(), providerRep.getNPI());
+            UriBuilder ub = context.getAbsolutePathBuilder().path("byNPI").queryParam("id", Long.toString(id));
+            URI url = ub.build();
+            return Response.created(url).build();
+        }
+        catch (ProviderServiceException ex) {
+            throw new WebApplicationException(ex.getMessage());
+        }
     }
-	
-	@POST
-	@Path("addtreatment")
+    
+    @POST
+    @Path("addtreatment")
     @Consumes(MediaType.APPLICATION_XML)
     public Response addTreatment(TreatmentRepresentation treatmentRep, @QueryParam("pid") String patientDbIdStr, @QueryParam("npi") String NPIStr) {
-    	try {
-    		long patientDbId = Long.parseLong(patientDbIdStr);
-    		long NPI = Long.parseLong(NPIStr);
-    		long tid;
-    		
-			Patient patient = patientDAO.getPatientByDbId(patientDbId);
-			Provider provider = providerDAO.getProviderByNPI(NPI);
-			if(patient == null || provider == null)
-				throw new WebApplicationException(Response.Status.NOT_FOUND);
-			
-			utx.begin();
-			if(treatmentRep.getDrugTreatment() != null) {
-				DrugTreatmentType drug = treatmentRep.getDrugTreatment();
-				tid = provider.addDrugTreatment(treatmentRep.getDiagnosis(), drug.getDrugName(), drug.getDosage(), patient);
-			}
-			else if(treatmentRep.getRadiologyTreatment() != null) {
-				RadiologyTreatmentType radiology = treatmentRep.getRadiologyTreatment();
-				tid = provider.addRadiologyTreatment(treatmentRep.getDiagnosis(), radiology.getDate(), patient);
-			}
-			else {
-				SurgeryTreatmentType surgery = treatmentRep.getSurgeryTreatment();
-				tid = provider.addSurgeryTreatment(treatmentRep.getDiagnosis(), surgery.getDate(), patient);
-			}
-			utx.commit();
-			
-			URI treatmentURI = context.getBaseUriBuilder().path("treatment").path("{id}").build(Long.toString(tid));
-    		return Response.created(treatmentURI).build();
-			
-		}
-		catch(PatientException ex) {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
-		catch(ProviderException ex) {
-			throw new WebApplicationException(ex.getMessage());
-		}
-    	catch(Exception ex) {
-    		throw new WebApplicationException(ex.getMessage());
-    	}
+        try {
+            long patientDbId = Long.parseLong(patientDbIdStr);
+            long NPI = Long.parseLong(NPIStr);
+            long tid;
+            
+            Patient patient = patientDAO.getPatientByDbId(patientDbId);
+            Provider provider = providerDAO.getProviderByNPI(NPI);
+            if(patient == null || provider == null)
+                throw new WebApplicationException(Response.Status.NOT_FOUND);
+            
+            utx.begin();
+            if(treatmentRep.getDrugTreatment() != null) {
+                DrugTreatmentType drug = treatmentRep.getDrugTreatment();
+                tid = provider.addDrugTreatment(treatmentRep.getDiagnosis(), drug.getDrugName(), drug.getDosage(), patient);
+            }
+            else if(treatmentRep.getRadiologyTreatment() != null) {
+                RadiologyTreatmentType radiology = treatmentRep.getRadiologyTreatment();
+                tid = provider.addRadiologyTreatment(treatmentRep.getDiagnosis(), radiology.getDate(), patient);
+            }
+            else {
+                SurgeryTreatmentType surgery = treatmentRep.getSurgeryTreatment();
+                tid = provider.addSurgeryTreatment(treatmentRep.getDiagnosis(), surgery.getDate(), patient);
+            }
+            utx.commit();
+            
+            URI treatmentURI = context.getBaseUriBuilder().path("treatment").path("{id}").build(Long.toString(tid));
+            return Response.created(treatmentURI).build();
+            
+        }
+        catch(PatientException ex) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+        catch(ProviderException ex) {
+            throw new WebApplicationException(ex.getMessage());
+        }
+        catch(Exception ex) {
+            throw new WebApplicationException(ex.getMessage());
+        }
     }
-	
-	@GET
+    
+    @GET
     @Path("byNPI")
     @Produces(MediaType.APPLICATION_XML)
     public ProviderRepresentation getProvider(@QueryParam("id") String NPI) {
        try {
-    	   long npi = Long.parseLong(NPI);
-    	   ProviderDTO providerDTO = providerService.getProviderByNPI(npi);
-    	   ProviderRepresentation providerRep = new ProviderRepresentation(providerDTO, context);
-    	   return providerRep;
+           long npi = Long.parseLong(NPI);
+           ProviderDTO providerDTO = providerService.getProviderByNPI(npi);
+           ProviderRepresentation providerRep = new ProviderRepresentation(providerDTO, context);
+           return providerRep;
        }
        catch(ProviderNotFoundException ex) {
-    	   throw new WebApplicationException(Response.Status.NOT_FOUND);
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
        }
        catch(ProviderServiceException ex) {
-    	   throw new WebApplicationException(ex.getMessage());
+           throw new WebApplicationException(ex.getMessage());
        }
     }
-	
-	@GET
+    
+    @GET
     @Path("{npi}/treatments")
     @Produces(MediaType.APPLICATION_XML)
     public TreatmentRepresentation[] getTreatments(@PathParam("npi") String NPI, @HeaderParam("X-Patient") String patientDbId) {
-		
+        
        try {
-    	    long npi = Long.parseLong(NPI);
-    	    long id = Long.parseLong(patientDbId);
-			Provider provider = providerDAO.getProviderByNPI(npi);
-			Patient patient = patientDAO.getPatientByDbId(id);
-			if(provider == null)
-				throw new WebApplicationException(Response.Status.NOT_FOUND);
-			List<Long> tids = provider.getTreatmentIds(patient);
-			TreatmentRepresentation[] treatmentReps = new TreatmentRepresentation[tids.size()];
-			for(int i = 0; i < tids.size(); ++i) {
-				Treatment_PDO_to_Representation visitor = new Treatment_PDO_to_Representation(context);
-				provider.visitTreatment(tids.get(i), visitor);
-				treatmentReps[i] = visitor.getRep();
-			}
-			return treatmentReps;
-		}
-		catch(PatientException ex) {
-			 throw new WebApplicationException(ex.getMessage());
-		}
-		catch(ProviderException ex) {
-			 throw new WebApplicationException(ex.getMessage());
+            long npi = Long.parseLong(NPI);
+            long id = Long.parseLong(patientDbId);
+            Provider provider = providerDAO.getProviderByNPI(npi);
+            Patient patient = patientDAO.getPatientByDbId(id);
+            if(provider == null)
+                throw new WebApplicationException(Response.Status.NOT_FOUND);
+            List<Long> tids = provider.getTreatmentIds(patient);
+            TreatmentRepresentation[] treatmentReps = new TreatmentRepresentation[tids.size()];
+            for(int i = 0; i < tids.size(); ++i) {
+                Treatment_PDO_to_Representation visitor = new Treatment_PDO_to_Representation(context);
+                provider.visitTreatment(tids.get(i), visitor);
+                treatmentReps[i] = visitor.getRep();
+            }
+            return treatmentReps;
         }
-		catch(TreatmentException ex) {
-			 throw new WebApplicationException(ex.getMessage());
-		}
+        catch(PatientException ex) {
+             throw new WebApplicationException(ex.getMessage());
+        }
+        catch(ProviderException ex) {
+             throw new WebApplicationException(ex.getMessage());
+        }
+        catch(TreatmentException ex) {
+             throw new WebApplicationException(ex.getMessage());
+        }
     }
 }

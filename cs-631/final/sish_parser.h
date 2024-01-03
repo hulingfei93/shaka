@@ -8,27 +8,27 @@
 #include <sish_core.h>
 
 #define sish_options_enable_interaction(options) \
-	(!(options)->flag_c)
+    (!(options)->flag_c)
 
 #define sish_options_enable_tracing(options) \
-	((options)->flag_x)
+    ((options)->flag_x)
 
 typedef struct {
-	sish_bool_t		flag_c;
-	char			*command;
-	sish_bool_t		flag_x;
+    sish_bool_t     flag_c;
+    char            *command;
+    sish_bool_t     flag_x;
 } sish_options_t;
 
 typedef struct {
-	sish_vector_t	*tokens;
-	sish_vector_t	*args;
-	char			*path;
-	char			*redirect_stdin;
-	char			*redirect_stdout;
-	sish_bool_t		redirect_stdout_is_append;
-	sish_bool_t		is_builtin;
-	sish_bool_t		is_pipeline;
-	sish_bool_t		is_background;
+    sish_vector_t   *tokens;
+    sish_vector_t   *args;
+    char            *path;
+    char            *redirect_stdin;
+    char            *redirect_stdout;
+    sish_bool_t     redirect_stdout_is_append;
+    sish_bool_t     is_builtin;
+    sish_bool_t     is_pipeline;
+    sish_bool_t     is_background;
 } sish_command_t;
 
 

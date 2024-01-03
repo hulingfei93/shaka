@@ -8,18 +8,18 @@
 
 #include <ls_core.h>
 
-#define ls_list_empty(list)		((list)->head->next == LS_NULL)
+#define ls_list_empty(list)     ((list)->head->next == LS_NULL)
 
-typedef struct ls_list_node_s	ls_list_node_t;
+typedef struct ls_list_node_s   ls_list_node_t;
 
 struct ls_list_node_s {
-	void				*value;
-	ls_list_node_t		*next;
+    void                *value;
+    ls_list_node_t      *next;
 };
 
 typedef struct {
-	ls_list_node_t		*head;
-	ls_list_node_t		*tail;
+    ls_list_node_t      *head;
+    ls_list_node_t      *tail;
 } ls_list_t;
 
 ls_list_t *ls_list_create(void);

@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema
-	targetNamespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic"
-	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
-	xmlns:tns="http://www.lhu4.com/cs-548/assignment02/schemas/clinic"
-	xmlns:pat="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/patient"
-	xmlns:prov="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/provider" xmlns:trmt="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/treatment">
-	<import schemaLocation="Patient.xsd"
-		namespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/patient">
-	</import>
-	<import schemaLocation="Provider.xsd"
-		namespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/provider">
-	</import>
+    targetNamespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic"
+    elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://www.lhu4.com/cs-548/assignment02/schemas/clinic"
+    xmlns:pat="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/patient"
+    xmlns:prov="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/provider" xmlns:trmt="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/treatment">
+    <import schemaLocation="Patient.xsd"
+        namespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/patient">
+    </import>
+    <import schemaLocation="Provider.xsd"
+        namespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/provider">
+    </import>
 
-	<import schemaLocation="Treatment.xsd" namespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/treatment"></import>
-	<complexType name="ClinicType">
-		<sequence>
-			<element name="patient" type="pat:PatientType" minOccurs="0"
-				maxOccurs="unbounded">
-			</element>
-			<element name="provider" type="prov:ProviderType"
-				minOccurs="0" maxOccurs="unbounded">
-			</element>
-		</sequence>
-	</complexType>
+    <import schemaLocation="Treatment.xsd" namespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/treatment"></import>
+    <complexType name="ClinicType">
+        <sequence>
+            <element name="patient" type="pat:PatientType" minOccurs="0"
+                maxOccurs="unbounded">
+            </element>
+            <element name="provider" type="prov:ProviderType"
+                minOccurs="0" maxOccurs="unbounded">
+            </element>
+        </sequence>
+    </complexType>
 
-	<element name="Clinic" type="tns:ClinicType">
-		<key name="ProviderPrimaryKey">
-			<selector xpath="./prov:Provider"></selector>
-			<field xpath="prov:providerId"></field>
-		</key>
-		<keyref name="TreatmentProviderForeignKey"
-			refer="tns:ProviderPrimaryKey">
-			<selector
-				xpath="./pat:Patient/pat:treatments/pat:treatment">
-			</selector>
-			<field xpath="trmt:providerId"></field>
-		</keyref>
-	</element>
+    <element name="Clinic" type="tns:ClinicType">
+        <key name="ProviderPrimaryKey">
+            <selector xpath="./prov:Provider"></selector>
+            <field xpath="prov:providerId"></field>
+        </key>
+        <keyref name="TreatmentProviderForeignKey"
+            refer="tns:ProviderPrimaryKey">
+            <selector
+                xpath="./pat:Patient/pat:treatments/pat:treatment">
+            </selector>
+            <field xpath="trmt:providerId"></field>
+        </keyref>
+    </element>
 </schema>

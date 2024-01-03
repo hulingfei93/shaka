@@ -3,33 +3,33 @@
 
 #include <sse_core.h>
 
-typedef int		sse_fd_t;
+typedef int     sse_fd_t;
 
-#define SSE_FD_STDIN		STDIN_FILENO	
-#define SSE_FD_STDOUT		STDOUT_FILENO
-#define SSE_FD_STDERR		STDERR_FILENO
-#define SSE_FD_INVALID		-1
+#define SSE_FD_STDIN        STDIN_FILENO    
+#define SSE_FD_STDOUT       STDOUT_FILENO
+#define SSE_FD_STDERR       STDERR_FILENO
+#define SSE_FD_INVALID      -1
 
-#define SSE_STDIO_STDIN		stdin
-#define SSE_STDIO_STDOUT	stdout
-#define SSE_STDIO_STDERR	stderr
+#define SSE_STDIO_STDIN     stdin
+#define SSE_STDIO_STDOUT    stdout
+#define SSE_STDIO_STDERR    stderr
 
-#define SSE_FILE_RDONLY				O_RDONLY
-#define SSE_FILE_WRONLY				O_WRONLY
-#define SSE_FILE_RDWR				O_RDWR
-#define SSE_FILE_CREATE_OR_OPEN		O_CREATE
-#define SSE_FILE_OPEN				0
-#define SSE_FILE_TRUNCATE			(O_CREAT|O_TRUNC)
-#define SSE_FILE_APPEND				(O_WRONLY|O_APPEND)
+#define SSE_FILE_RDONLY             O_RDONLY
+#define SSE_FILE_WRONLY             O_WRONLY
+#define SSE_FILE_RDWR               O_RDWR
+#define SSE_FILE_CREATE_OR_OPEN     O_CREATE
+#define SSE_FILE_OPEN               0
+#define SSE_FILE_TRUNCATE           (O_CREAT|O_TRUNC)
+#define SSE_FILE_APPEND             (O_WRONLY|O_APPEND)
 
-#define SSE_FILE_DEFAULT_MODE		0644
-#define SSE_DIR_DEFAULT_MODE		0755
-#define SSE_PATH_MAX_SIZE			1024
-#define SSE_INT_MAX_SIZE			32
+#define SSE_FILE_DEFAULT_MODE       0644
+#define SSE_DIR_DEFAULT_MODE        0755
+#define SSE_PATH_MAX_SIZE           1024
+#define SSE_INT_MAX_SIZE            32
 
-#define SSE_FILE_COPY_BUF_SIZE		8192
+#define SSE_FILE_COPY_BUF_SIZE      8192
 
-#define sse_file_write(fd, buf, size)	write(fd, buf, size)
+#define sse_file_write(fd, buf, size)   write(fd, buf, size)
 
 void sse_file_path_fill(char *path, const char *dir, const char *name, const char *ext);
 sse_fd_t sse_open_file(const char *path, sse_int_t flag, sse_file_mode_t mode);

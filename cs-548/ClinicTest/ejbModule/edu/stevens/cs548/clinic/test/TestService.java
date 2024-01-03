@@ -29,11 +29,11 @@ import edu.stevens.cs548.clinic.service.web.rest.data.SpeicalizationType;
 @Startup
 public class TestService {
 
-	private static Logger logger = Logger.getLogger(TestService.class.getCanonicalName());
-	
-	private static void info(String m) {
-		logger.info(m);
-	}
+    private static Logger logger = Logger.getLogger(TestService.class.getCanonicalName());
+    
+    private static void info(String m) {
+        logger.info(m);
+    }
 
     public TestService() { }
     
@@ -49,52 +49,52 @@ public class TestService {
     
     @PostConstruct
     public void init() {
-    	try {
-    		info("-----------Begin-------------");
-      	    
-    		SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd");
-    		
-    		// create a patient
-    		PatientRepresentation patientRep = new PatientRepresentation();
-    		patientRep.setName("Brown");
-    		patientRep.setDob(sdf.parse("1965-05-06"));
-    		patientRep.setPatientId(357278);
-    		long patientDbId = patientRes.addPatient(patientRep, 49);
-    		info("Patient of id " + patientDbId + " has been inserted into DB.");
-    		
-    		// create a provider
-    		ProviderRepresentation providerRep = new ProviderRepresentation();
-    		providerRep.setNPI(694594);
-    		providerRep.setName("Smith");
-    		long providerNPI = providerRes.addProvider(providerRep);
-    		info("provider of NPI " + providerNPI + " has been inserted into DB.");
-   		
-    		// add a treatment
-    		TreatmentRepresentation treatmentRep = new TreatmentRepresentation();
-    		treatmentRep.setDiagnosis("code");
-    		DrugTreatmentRepresentation drugRep = new DrugTreatmentRepresentation();
-    		drugRep.setDrugName("cold medication");
-    		drugRep.setDosage(18.0f);
-    		treatmentRep.setDrugTreatment(drugRep);
-    		long tid = providerRes.addTreatment(Long.toString(patientDbId), Long.toString(providerNPI), treatmentRep);
-    		info("The treatment of id " + tid + " has been inserted into DB.");
-    		
-    		// check
-    		PatientRepresentation patient = patientRes.getPatient(Long.toString(patientDbId));
-    		ProviderRepresentation provider = providerRes.getProvider(Long.toString(providerNPI));
-    		TreatmentRepresentation treatment = treatmentRes.getTreatment(Long.toString(tid));
-    		
-    		info("Patient of id " + patient.getId() + " contains a treatment of id " + patient.getTreatments().get(0).getUrl());
-    		info("Provider of NPI " + provider.getNPI() + " contains a treatment of id " + provider.getTreatments().get(0).getUrl());
-    		info("Treatment of id : " + treatment.getId() + " owned by patient of id " + treatment.getLinkPatient().getUrl() 
-   				+ " and supervised by provider of id " + treatment.getLinkProvider().getUrl());
-    		
-    	   
-    		
-    		info("-----------End-------------");
-    	}
-    	catch(Exception ex) {
-    		info(ex.getMessage());
-    	}
+        try {
+            info("-----------Begin-------------");
+            
+            SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd");
+            
+            // create a patient
+            PatientRepresentation patientRep = new PatientRepresentation();
+            patientRep.setName("Brown");
+            patientRep.setDob(sdf.parse("1965-05-06"));
+            patientRep.setPatientId(357278);
+            long patientDbId = patientRes.addPatient(patientRep, 49);
+            info("Patient of id " + patientDbId + " has been inserted into DB.");
+            
+            // create a provider
+            ProviderRepresentation providerRep = new ProviderRepresentation();
+            providerRep.setNPI(694594);
+            providerRep.setName("Smith");
+            long providerNPI = providerRes.addProvider(providerRep);
+            info("provider of NPI " + providerNPI + " has been inserted into DB.");
+        
+            // add a treatment
+            TreatmentRepresentation treatmentRep = new TreatmentRepresentation();
+            treatmentRep.setDiagnosis("code");
+            DrugTreatmentRepresentation drugRep = new DrugTreatmentRepresentation();
+            drugRep.setDrugName("cold medication");
+            drugRep.setDosage(18.0f);
+            treatmentRep.setDrugTreatment(drugRep);
+            long tid = providerRes.addTreatment(Long.toString(patientDbId), Long.toString(providerNPI), treatmentRep);
+            info("The treatment of id " + tid + " has been inserted into DB.");
+            
+            // check
+            PatientRepresentation patient = patientRes.getPatient(Long.toString(patientDbId));
+            ProviderRepresentation provider = providerRes.getProvider(Long.toString(providerNPI));
+            TreatmentRepresentation treatment = treatmentRes.getTreatment(Long.toString(tid));
+            
+            info("Patient of id " + patient.getId() + " contains a treatment of id " + patient.getTreatments().get(0).getUrl());
+            info("Provider of NPI " + provider.getNPI() + " contains a treatment of id " + provider.getTreatments().get(0).getUrl());
+            info("Treatment of id : " + treatment.getId() + " owned by patient of id " + treatment.getLinkPatient().getUrl() 
+                + " and supervised by provider of id " + treatment.getLinkProvider().getUrl());
+            
+           
+            
+            info("-----------End-------------");
+        }
+        catch(Exception ex) {
+            info(ex.getMessage());
+        }
     }
 }

@@ -8,47 +8,47 @@ template <class T>
 class Queue
 {
 private:
-	SList<T> container;
+    SList<T> container;
 public:
-	const T& Front()
-	{
-		return container.ShowFirst();
-	}
+    const T& Front()
+    {
+        return container.ShowFirst();
+    }
 
-	void DeQueue()
-	{
-		container.RemoveFirst();
-	}
+    void DeQueue()
+    {
+        container.RemoveFirst();
+    }
 
-	void EnQueue(const T& newItem)
-	{
-		container.AddLast(newItem);
-	}
+    void EnQueue(const T& newItem)
+    {
+        container.AddLast(newItem);
+    }
 
-	bool IsEmpty()
-	{
-		return container.IsEmpty();
-	}
+    bool IsEmpty()
+    {
+        return container.IsEmpty();
+    }
 
-	void Print()
-	{
-		SList<T>::Iterator i = container.Begin();
-		while (i != container.End())
-		{
-			std::cout << *i++ << "\t";
-		}
-		std::cout << std::endl;
-	}
+    void Print()
+    {
+        SList<T>::Iterator i = container.Begin();
+        while (i != container.End())
+        {
+            std::cout << *i++ << "\t";
+        }
+        std::cout << std::endl;
+    }
 
-	void Print_v2()
-	{
-		SList<T>::Iterator i = container.Begin();
-		while (i != container.End())
-		{
-			std::cout << *i++;
-		}
-		std::cout << std::endl;
-	}
+    void Print_v2()
+    {
+        SList<T>::Iterator i = container.Begin();
+        while (i != container.End())
+        {
+            std::cout << *i++;
+        }
+        std::cout << std::endl;
+    }
 };
 
 

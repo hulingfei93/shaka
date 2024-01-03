@@ -3,21 +3,21 @@
 
 #include <sse_core.h>
 
-typedef struct sse_hash_kv_s	sse_hash_kv_t;
+typedef struct sse_hash_kv_s    sse_hash_kv_t;
 
 struct sse_hash_kv_s {
-	sse_str_t					*key;
-	void						*value;
-	sse_hash_kv_t				*next;
+    sse_str_t                   *key;
+    void                        *value;
+    sse_hash_kv_t               *next;
 };
 
 typedef struct {
-	sse_hash_kv_t				**buckets;
-	size_t						bucket_size;
-	sse_uint_t					kv_count;
-	sse_uint_t					conflict_count;
-	sse_pool_t					*pool;
-	sse_log_t					*log;
+    sse_hash_kv_t               **buckets;
+    size_t                      bucket_size;
+    sse_uint_t                  kv_count;
+    sse_uint_t                  conflict_count;
+    sse_pool_t                  *pool;
+    sse_log_t                   *log;
 } sse_hash_t;
 
 

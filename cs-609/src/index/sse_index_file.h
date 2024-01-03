@@ -5,86 +5,86 @@
 #include <sse_index.h>
 
 typedef struct {
-	sse_str_t		term;
-	sse_freq_t		doc_freq;
-	sse_off_t		offset;
+    sse_str_t       term;
+    sse_freq_t      doc_freq;
+    sse_off_t       offset;
 
 } sse_index_file_term_t;
 
 typedef struct {
-	sse_uint_t					term_num;
-	sse_uint_t					term_count;
-	sse_uint_t					term_block_size;
+    sse_uint_t                  term_num;
+    sse_uint_t                  term_count;
+    sse_uint_t                  term_block_size;
 
-	sse_index_file_term_t		*prev_term;
-	sse_index_file_term_t		*cur_term;
+    sse_index_file_term_t       *prev_term;
+    sse_index_file_term_t       *cur_term;
 
-	FILE						*file;
-	const char					*file_path;
+    FILE                        *file;
+    const char                  *file_path;
 
-	sse_pool_t					*pool;
-	sse_log_t					*log;
-	
+    sse_pool_t                  *pool;
+    sse_log_t                   *log;
+    
 } sse_index_file_term_dict_t;
 
 typedef struct {
-	sse_uint_t		index_count;
-	sse_off_t		base_offset;
-	FILE			*file;
-	const char		*file_path;
+    sse_uint_t      index_count;
+    sse_off_t       base_offset;
+    FILE            *file;
+    const char      *file_path;
 
-	sse_pool_t		*pool;
-	sse_log_t		*log;
+    sse_pool_t      *pool;
+    sse_log_t       *log;
 } sse_index_file_term_dict_index_t;
 
 /* docid freq index file */
 typedef struct {
-	FILE			*file;
-	const char		*file_path;
+    FILE            *file;
+    const char      *file_path;
 
-	sse_pool_t		*pool;
-	sse_log_t		*log;
+    sse_pool_t      *pool;
+    sse_log_t       *log;
 } sse_index_file_docid_freq_t;
 
 typedef struct {
-	sse_id_t		doc_id;
-	sse_freq_t		term_freq;
-	float			weight;
-	sse_off_t		offset;
+    sse_id_t        doc_id;
+    sse_freq_t      term_freq;
+    float           weight;
+    sse_off_t       offset;
 } sse_index_file_posting_t;
 
 /* offset index file */
 typedef struct {
-	FILE			*file;
-	const char		*file_path;
+    FILE            *file;
+    const char      *file_path;
 
-	sse_pool_t		*pool;
-	sse_log_t		*log;
+    sse_pool_t      *pool;
+    sse_log_t       *log;
 } sse_index_file_offset_t;
 
 typedef struct {
-	sse_off_t		start;
-	size_t			len;
+    sse_off_t       start;
+    size_t          len;
 } sse_index_file_offset_data_t;
 
 /* doc index file */
 typedef struct {
-	sse_uint_t		doc_count;
-	sse_off_t		base_offset;
-	FILE			*file;
-	const char		*file_path;
+    sse_uint_t      doc_count;
+    sse_off_t       base_offset;
+    FILE            *file;
+    const char      *file_path;
 
-	sse_pool_t		*pool;
-	sse_log_t		*log;
+    sse_pool_t      *pool;
+    sse_log_t       *log;
 } sse_index_file_doc_index_t;
 
 /* doc file */
 typedef struct {
-	FILE			*file;
-	const char		*file_path;
+    FILE            *file;
+    const char      *file_path;
 
-	sse_pool_t		*pool;
-	sse_log_t		*log;
+    sse_pool_t      *pool;
+    sse_log_t       *log;
 } sse_index_file_doc_t;
 
 sse_index_file_term_dict_t * sse_index_file_term_dict_init(sse_pool_t *pool, sse_log_t *log);

@@ -7,12 +7,12 @@ import edu.stevens.cs548.clinic.service.web.rest.data.TreatmentType;
 
 @XmlRootElement
 public class TreatmentRepresentation extends TreatmentType {
-	
-	public LinkType getLinkPatient() {
-		return this.getPatient();
-	}
-	
-	public LinkType getLinkProvider() {
-		return this.getProvider();
-	}
+    
+    public LinkType getLinkPatient() {
+        return this.getPatient();
+    }
+    
+    public LinkType getLinkProvider() {
+        return this.getProvider();
+    }
 }

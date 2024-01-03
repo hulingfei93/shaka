@@ -9,21 +9,21 @@
 算法面试中如果需要优化O(n)的时间复杂度, 那么几乎只能是O(logn)的二分法
 
 1. low <= high
-	mid = low + (high - low) / 2
-	low = mid + 1	high = mid - 1
-	
+    mid = low + (high - low) / 2
+    low = mid + 1   high = mid - 1
+    
 2. low + 1 < high
-	mid = low + (high - low) / 2
-	low = mid	high = mid
-	nums[low] == target	nums[high] == target
-	
+    mid = low + (high - low) / 2
+    low = mid   high = mid
+    nums[low] == target nums[high] == target
+    
 3. low < high
-	/** left boundary **/
-	mid = low + (high - low) / 2
-	low = mid + 1	high = mid
-	
-	/** right boundary **/
-	mid = low + (high - low) / 2 + 1
-	low = mid	high = mid - 1
+    /** left boundary **/
+    mid = low + (high - low) / 2
+    low = mid + 1   high = mid
+    
+    /** right boundary **/
+    mid = low + (high - low) / 2 + 1
+    low = mid   high = mid - 1
 
-	
+    

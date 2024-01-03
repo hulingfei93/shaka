@@ -2,10 +2,10 @@
 <schema targetNamespace="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/clinic_ids" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.lhu4.com/cs-548/assignment02/schemas/clinic/clinic_ids">
 
     <simpleType name="PatientIdType">
-    	<restriction base="long"></restriction>
+        <restriction base="long"></restriction>
     </simpleType>
 
     <simpleType name="ProviderIdType">
-    	<restriction base="long"></restriction>
+        <restriction base="long"></restriction>
     </simpleType>
 </schema>

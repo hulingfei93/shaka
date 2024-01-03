@@ -4,9 +4,9 @@
 #include <sse_core.h>
 #include <sse_index.h>
 
-#define SSE_TERM_DICT_VECTOR_SIZE			100
-#define SSE_TERM_DICT_VECTOR_LARGE_SIZE		100000
-#define SSE_TERM_DICT_STACK_SIZE			100
+#define SSE_TERM_DICT_VECTOR_SIZE           100
+#define SSE_TERM_DICT_VECTOR_LARGE_SIZE     100000
+#define SSE_TERM_DICT_STACK_SIZE            100
 
 sse_rbtree_t *sse_term_dict_create(sse_pool_t *pool, sse_log_t *log);
 void sse_term_dict_add(sse_rbtree_t *term_dict, sse_str_t *term, sse_off_t start_offset, size_t len, sse_id_t doc_id);

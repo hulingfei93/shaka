@@ -4,9 +4,9 @@
 #include <sse_core.h>
 
 typedef struct {
-	sse_uint_t		log_level;
-	FILE			*log_file;
-	char			*log_path;
+    sse_uint_t      log_level;
+    FILE            *log_file;
+    char            *log_path;
 } sse_log_t;
 
 

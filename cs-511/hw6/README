@@ -1,20 +1,20 @@
-1a:	buggy_1.pml
-1b:	erigone.exe -s -lt1000 buggy_1
-1c:	verification terminated=assert statement is false,line=27,statement={assert(5 <= n && n <= 10)},
+1a: buggy_1.pml
+1b: erigone.exe -s -lt1000 buggy_1
+1c: verification terminated=assert statement is false,line=27,statement={assert(5 <= n && n <= 10)},
 
-2a:	buggy_2.pml
-2b:	erigone.exe -s -lt1000 buggy_2
-2c:	verification terminated=assert statement is false,line=27,statement={assert(n != 2)},
-2d:	erigone.exe -g buggy_2
-2e:	buggy_2.trl
+2a: buggy_2.pml
+2b: erigone.exe -s -lt1000 buggy_2
+2c: verification terminated=assert statement is false,line=27,statement={assert(n != 2)},
+2d: erigone.exe -g buggy_2
+2e: buggy_2.trl
 
-3a:	buggy_3.pml
-3b:	erigone.exe -s -lt1000 buggy_3
-3c:	verification terminated=successfully,
+3a: buggy_3.pml
+3b: erigone.exe -s -lt1000 buggy_3
+3c: verification terminated=successfully,
 
-4a:	cart.pml
-4b:	erigone.exe cart
-4c:	4 7 1 5 8 9 3 10 2 6
-	simulation passed assertion!
-4b:	erigone.exe -s -lt1000 cart
-4c:	verification terminated=too many transitions from state,line=27,statement={else},
+4a: cart.pml
+4b: erigone.exe cart
+4c: 4 7 1 5 8 9 3 10 2 6
+    simulation passed assertion!
+4b: erigone.exe -s -lt1000 cart
+4c: verification terminated=too many transitions from state,line=27,statement={else},

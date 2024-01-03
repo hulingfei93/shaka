@@ -1,21 +1,21 @@
 /********** tcp1.0 -- trivially copyafile ****************/
 
 SYNOPSIS
-	tcp source target
+    tcp source target
 
 DESCRIPTION
-	The tcp utility copies the contents of the source to target.
-	If target is a directory, tcp will copy source into this directory.
+    The tcp utility copies the contents of the source to target.
+    If target is a directory, tcp will copy source into this directory.
 
 EXAMPLES
-	The following examples show common usage:
-		tcp file1 file2
-		tcp file1 dir
-		tcp file1 dir/file2
-		tcp file1 dir/subdir/subsubdir/file2
+    The following examples show common usage:
+        tcp file1 file2
+        tcp file1 dir
+        tcp file1 dir/file2
+        tcp file1 dir/subdir/subsubdir/file2
 
 EXIT STATUS
-	tcp exits 0 on success, and >0 if an error occurred
+    tcp exits 0 on success, and >0 if an error occurred
 
 
 
@@ -23,20 +23,20 @@ EXIT STATUS
 /************* tcpm1.0 -- trivially copyafile via mmap/memcpy *****************/
 
 SYNOPSIS
-	tcpm source target
+    tcpm source target
 
 DESCRIPTION
-	The tcpm utility copies the contents of the source to target. That is, behaves entirely the same as tcp(1).
-	Unlike tcp(1), tcpm uses mmap(2) and memcpy(2) instead of read(2) and write(2), which is why it can
+    The tcpm utility copies the contents of the source to target. That is, behaves entirely the same as tcp(1).
+    Unlike tcp(1), tcpm uses mmap(2) and memcpy(2) instead of read(2) and write(2), which is why it can
 be rewarded with up to 10 extra credit points.
 
 EXAMPLES
-	The following examples show common usage:
-		tcpm file1 file2
-		tcpm file1 dir
-		tcpm file1 dir/file2
-		tcpm file1 dir/subdir/subsubdir/file2
+    The following examples show common usage:
+        tcpm file1 file2
+        tcpm file1 dir
+        tcpm file1 dir/file2
+        tcpm file1 dir/subdir/subsubdir/file2
 
 EXIT STATUS
-	tcpm exits 0 on success, and >0 if an error occurred.
+    tcpm exits 0 on success, and >0 if an error occurred.
 

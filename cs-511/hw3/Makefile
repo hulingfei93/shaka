@@ -9,16 +9,16 @@ default: build
 build: trafficmgr
 
 clean:
-	rm -rf *.o
-	rm -rf trafficmgr
+    rm -rf *.o
+    rm -rf trafficmgr
 
 
 trafficmgr: trafficmgr.o monitor.o
-	$(LINK) -o trafficmgr trafficmgr.o monitor.o -lpthread
+    $(LINK) -o trafficmgr trafficmgr.o monitor.o -lpthread
 
 trafficmgr.o: trafficmgr.c monitor.h
-	$(CC) -c $(CFLAGS) $(INCS) -o trafficmgr.o trafficmgr.c
+    $(CC) -c $(CFLAGS) $(INCS) -o trafficmgr.o trafficmgr.c
 
 monitor.o: monitor.c monitor.h
-	$(CC) -c $(CFLAGS) $(INCS) -o monitor.o monitor.c
+    $(CC) -c $(CFLAGS) $(INCS) -o monitor.o monitor.c
 

@@ -7,26 +7,26 @@
 
 #include <sish_core.h>
 
-typedef struct sish_pool_small_block_s	sish_pool_small_block_t;
-typedef struct sish_pool_large_block_s	sish_pool_large_block_t;
+typedef struct sish_pool_small_block_s  sish_pool_small_block_t;
+typedef struct sish_pool_large_block_s  sish_pool_large_block_t;
 
 struct sish_pool_small_block_s {
-	char						*last;
-	char						*end;
-	sish_pool_small_block_t		*next;
+    char                        *last;
+    char                        *end;
+    sish_pool_small_block_t     *next;
 };
 
 struct sish_pool_large_block_s {
-	sish_pool_large_block_t		*next;
-	void						*data;
+    sish_pool_large_block_t     *next;
+    void                        *data;
 };
 
 typedef struct {
-	sish_pool_small_block_t		*small;
-	size_t						small_block_size;
-	sish_uint_t					small_block_count;
-	sish_pool_small_block_t		*current;
-	sish_pool_large_block_t		*large;
+    sish_pool_small_block_t     *small;
+    size_t                      small_block_size;
+    sish_uint_t                 small_block_count;
+    sish_pool_small_block_t     *current;
+    sish_pool_large_block_t     *large;
 } sish_pool_t;
 
 
